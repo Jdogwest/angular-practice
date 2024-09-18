@@ -1,0 +1,265 @@
+html {
+  font-size: 12 px;
+  transform: none;
+}
+textarea {
+  resize: none;
+  width: 100%;
+  padding: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.header {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 990px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.character-name {
+  width: 330px;
+  height: 200px;
+}
+character-name__value {
+  font-size: 2em;
+}
+.general-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 660px;
+}
+.general-info__item {
+  width: 220px;
+  height: 100px;
+  flex-basis: 220px;
+}
+
+.header p:first-child {
+  text-decoration: underline;
+}
+
+.main-table {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 990px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.stats {
+  width: 330px;
+  flex-basis: 330px;
+  display: flex;
+  justify-content: space-between;
+}
+.general-stats {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 80px;
+  width: 80px;
+}
+.general-stats__wrapper {
+  text-align: center;
+}
+.general-stats__stat-value {
+  font-size: 2em;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+.substats {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  flex-basis: 250px;
+}
+.substats__single-stat-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.substats__single-stat-wrapper p:first-child {
+  font-size: 1.5em;
+}
+.substats__challenges-skills {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: start;
+}
+
+.challenges-skills input {
+  flex-basis: 15px;
+  margin-right: 7px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.challenges-skills__stat-value {
+  flex-basis: 20px;
+  width: 20px;
+  margin-left: 7px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.challenges-skills__stat-name {
+  flex-basis: 180px;
+  width: 180px;
+  padding-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.challenges-skills__group-name {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  width: 250px;
+  text-align: center;
+}
+.main-table__combat-parameters {
+  width: 330px;
+  flex-basis: 330px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.combat-parameters__three-big-params {
+  width: 110px;
+  flex-basis: 110px;
+  justify-content: center;
+  text-align: center;
+}
+.combat-parameters__health-points {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.combat-parameters__health-points p {
+  margin-top: 3px;
+}
+.combat-parameters__health-points p:first-child {
+  margin-right: 4px;
+}
+.combat-parameters__dices-challenges-group {
+  display: flex;
+  width: 330px;
+  flex-basis: 330px;
+}
+.dices-challenges-group__dices {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 50%;
+  flex-basis: 50%;
+}
+.dices-challenges-group__dices p:first-child {
+  margin-right: 3px;
+}
+.dices__dice-text {
+  font-size: 32px;
+  width: 100%;
+  text-align: center;
+  margin: 3px;
+}
+.dices p:last-child {
+  margin-top: 3px;
+}
+.dices-challenges-group__challenges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 50%;
+  flex-basis: 50%;
+}
+.challenges__inputgroup {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  margin-right: 30px;
+  flex-basis: 100%;
+  align-items: center;
+}
+.challenges input {
+  margin: 3px;
+}
+.main-table__character-description {
+  width: 330px;
+  flex-basis: 330px;
+  text-align: center;
+}
+.main-table__character-description p {
+  margin-top: 3px;
+}
+.main-table__attacks-spells {
+  width: 330px;
+  flex-basis: 330px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.main-table__attacks-spells p:last-child {
+  margin-top: 3px;
+}
+.attacks-spells__weapons {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.attacks-spells__weapons-name {
+  width: 35%;
+  flex-basis: 35%;
+}
+.attacks-spells__weapons-bonus {
+  width: 15%;
+  flex-basis: 15%;
+}
+.attacks-spells__weapons-attack {
+  width: 35%;
+  flex-basis: 35%;
+}
+.main-table__features-traits {
+  width: 330px;
+  flex-basis: 330px;
+  text-align: center;
+}
+.main-table__features-traits p {
+  margin-top: 3px;
+}
+.main-table__inventory {
+  width: 330px;
+  flex-basis: 330px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.inventory textarea {
+  width: 85%;
+}
+.inventory p {
+  margin-top: 3px;
+}
+.inventory__money {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-around;
+}
+.inventory__money div {
+  display: flex;
+  align-items: center;
+}
+.inventory__money p:first-child {
+  font-size: 10px;
+  margin-right: 3px;
+}
+.main-table__abilities-languages {
+  width: 330px;
+  flex-basis: 330px;
+  text-align: center;
+}
+.main-table__abilities-languages p {
+  margin-top: 3px;
+}
