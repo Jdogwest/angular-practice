@@ -11,17 +11,23 @@ textarea {
 }
 
 .header {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 990px;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 50px;
-  & p:first-child {
-    text-decoration: underline;
+  max-width: 1000px;
+  margin:auto;
+  justify-items: center;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 250px));
+  grid-auto-rows: 100px;
+  grid-auto-flow: dense;
+
+  &__character-name {
+    grid-row: span 2;
+  }
+
+  &__header-info-block {
+
   }
 }
-
 .character-name {
   width: 330px;
   height: 200px;
