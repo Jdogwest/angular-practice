@@ -1,0 +1,83 @@
+.combat-parameters {
+  width: 100%;
+  flex-basis: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  &__three-big-params {
+    width: 33%;
+    flex-basis: 33%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  &__health-points {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  &__health-points p {
+    margin-top: 3px;
+  }
+
+  &__health-points p:first-child {
+    margin-right: 4px;
+  }
+
+  &__dices-challenges-group {
+    display: flex;
+    width: 100%;
+    flex-basis: 100%;
+  }
+}
+
+.dices-challenges-group {
+  &__dices {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 50%;
+    flex-basis: 50%;
+    & p:first-child {
+      margin-right: 3px;
+    }
+  }
+
+  &__challenges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 50%;
+    flex-basis: 50%;
+  }
+}
+
+.dices {
+  &__dice-text {
+    font-size: 32px;
+    width: 100%;
+    text-align: center;
+    margin: 3px;
+  }
+
+  & p:last-child {
+    margin-top: 3px;
+  }
+}
+
+.challenges {
+  &__inputgroup {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    margin-right: 30px;
+    flex-basis: 100%;
+    align-items: center;
+  }
+
+  & input {
+    margin: 3px;
+  }
+}

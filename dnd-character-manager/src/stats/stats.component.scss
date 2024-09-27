@@ -1,0 +1,85 @@
+.stats {
+  width: 100%;
+  flex-basis: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.general-stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-basis: 20%;
+  width: 20%;
+
+  &__wrapper {
+    text-align: center;
+  }
+
+  &__stat-value {
+    font-size: 2em;
+    margin-top: 7px;
+    margin-bottom: 7px;
+  }
+}
+
+.substats {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  flex-basis: 80%;
+
+  &__single-stat-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    & p:first-child {
+      font-size: 1.5em;
+    }
+  }
+
+  &__challenges-skills {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: start;
+  }
+}
+.challenges-skills {
+  & input {
+    flex-basis: 15%;
+    margin-right: 7px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  &__stat-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 90%;
+  }
+  &__stat-value {
+    flex-basis: 10%;
+    width: 10%;
+    margin-left: 7px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  &__stat-name {
+    flex-basis: 60%;
+    width: 60%;
+    padding-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  &__group-name {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    width: 250px;
+    text-align: center;
+  }
+}

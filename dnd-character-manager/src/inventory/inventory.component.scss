@@ -1,0 +1,17 @@
+.inventory{
+  width: 100%;
+  display: flex;
+
+  &__money{
+    flex-basis: 20%;
+  }
+  &__items{
+    flex-basis: 80%;
+    & p{
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+  }
+}

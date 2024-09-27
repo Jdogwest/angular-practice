@@ -1,2 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'primeflex/primeflex.scss';
+
+html {
+  font-size: 12 px;
+  transform: none;
+}
+
+textarea {
+  resize: none;
+  width: 80%;
+  margin: auto 15px;
+}
