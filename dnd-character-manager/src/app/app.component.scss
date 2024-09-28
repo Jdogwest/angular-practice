@@ -1,41 +1,4 @@
-
-
-.main-table {
-  margin-left: 20px;
-  margin-right: 20px;
+.page{
   max-width: 1000px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-
-
-
-
-.inventory {
-  & textarea {
-    width: 85%;
-  }
-
-  & p {
-    margin-top: 3px;
-  }
-
-  &__money {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: space-around;
-
-    & div {
-      display: flex;
-      align-items: center;
-    }
-
-    & p:first-child {
-      font-size: 10px;
-      margin-right: 3px;
-    }
-  }
+  margin: auto;
 }
