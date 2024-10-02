@@ -3,11 +3,13 @@
   margin:auto;
   justify-items: center;
   align-items: center;
+  text-align: center;
 }
 
 .character-name {
   text-align: center;
   &__value {
     font-size: 2em;
+    width: 200px;
   }
 }

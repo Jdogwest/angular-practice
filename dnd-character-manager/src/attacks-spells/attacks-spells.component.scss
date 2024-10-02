@@ -1,23 +1,17 @@
 .attacks-spells {
-  &__weapons {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-
-  &__weapons-name {
-    width: 35%;
-    flex-basis: 35%;
-  }
-
-  &__weapons-bonus {
-    width: 15%;
-    flex-basis: 15%;
-  }
-
-  &__weapons-attack {
-    width: 35%;
-    flex-basis: 35%;
+  &__attacks{
+    & p:first-child{
+      text-align: left;
+    }
+    & p:last-child{
+      text-align: right;
+    }
+    & p{
+      text-align: center;
+    }
+    & input{
+      margin: 6px auto;
+    }
   }
   &__undertext{
     text-align: center;

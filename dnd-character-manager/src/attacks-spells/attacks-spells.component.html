@@ -1,18 +1,24 @@
 <div class="attacks-spells">
-  <div class="attacks-spells__weapons">
-    <p class="attacks-spells__weapons-name">Название</p>
-    <p class="attacks-spells__weapons-bonus">Бонус атаки</p>
-    <p class="attacks-spells__weapons-attack">урон и тип</p>
-    <p class="attacks-spells__weapons-name">Тяж. арб.</p>
-    <p class="attacks-spells__weapons-bonus">+9</p>
-    <p class="attacks-spells__weapons-attack">1d10+5</p>
-    <p class="attacks-spells__weapons-name">Кинжал</p>
-    <p class="attacks-spells__weapons-bonus">+9</p>
-    <p class="attacks-spells__weapons-attack">1d4+5</p>
-    <p class="attacks-spells__weapons-name">Лук +2</p>
-    <p class="attacks-spells__weapons-bonus">+11</p>
-    <p class="attacks-spells__weapons-attack">1d6+7</p>
+  <div class="attacks-spells__attacks grid">
+    <p class="col-5">Название</p>
+    <p class="col-2">Бонус атаки</p>
+    <p class="col-5">Урон и тип</p>
   </div>
-  <textarea rows="15" maxlength="750"></textarea>
+  <div class="attacks-spells__attacks grid">
+    <input type="text" class="col-5" pInputText value="Тяж. арб.">
+    <input type="text" class="col-2 text-center" pInputText value="+9">
+    <input type="text" class="col-5" pInputText value="1d10+5">
+  </div>
+  <div class="attacks-spells__attacks grid">
+    <input type="text" class="col-5" pInputText value="Кинжал">
+    <input type="text" class="col-2 text-center" pInputText value="+9">
+    <input type="text" class="col-5" pInputText value="1d4+5">
+  </div>
+  <div class="attacks-spells__attacks grid">
+    <input type="text" class="col-5" pInputText value="Лук +2">
+    <input type="text" class="col-2 text-center" pInputText value="+11">
+    <input type="text" class="col-5" pInputText value="1d6+7">
+  </div>
+  <textarea rows="12" pInputTextarea></textarea>
   <p class="attacks-spells__undertext">Атаки и заклинания</p>
 </div>

@@ -4,6 +4,11 @@
 
   &__money{
     flex-basis: 20%;
+    & div{
+      display: flex;
+      justify-content: space-between;
+      margin-right: 5px;
+    }
   }
   &__items{
     flex-basis: 80%;
