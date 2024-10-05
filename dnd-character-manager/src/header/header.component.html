@@ -1,33 +1,32 @@
 <div class="header grid">
   <div class="character-name lg:col-3 md:col-4 sm:col-12">
-    <input type="text" class="character-name__value"pInputText value="Киишу"/>
+    <input type="text" class="character-name__value" pInputText [(ngModel)]="characterName" (change)="saveData('characterName', characterName)"/>
     <p>Имя персонажа</p>
   </div>
   <div class="lg:col-9 md:col-8 sm:col-12">
     <div class="grid">
       <div class="lg:col-4 sm:col-6">
-        <!-- <img src="./images/bunny.png" alt="bunny" width="100px" height="100px"> -->
-        <input type="text" pInputText value="Плут - 1 ур"/>
+        <input type="text" pInputText [(ngModel)]="classAndLevel" (change)="saveData('classAndLevel', classAndLevel)"/>
         <p>Класс и уровень</p>
       </div>
       <div class="lg:col-4 sm:col-6">
-        <input type="text" pInputText value="Преступник"/>
+        <input type="text" pInputText [(ngModel)]="origin" (change)="saveData('origin', origin)"/>
         <p>Происхождение</p>
       </div>
       <div class="lg:col-4 sm:col-6">
-        <input type="text" pInputText value="Константин"/>
+        <input type="text" pInputText [(ngModel)]="playerName" (change)="saveData('playerName', playerName)"/>
         <p>Имя игрока</p>
       </div>
       <div class="lg:col-4 sm:col-6">
-        <input type="text" pInputText value="Зайцегон"/>
+        <input type="text" pInputText [(ngModel)]="species" (change)="saveData('species', species)"/>
         <p>Раса</p>
       </div>
       <div class="lg:col-4 sm:col-6">
-        <input type="text" pInputText value="C/N"/>
+        <input type="text" pInputText [(ngModel)]="worldView" (change)="saveData('worldView', worldView)"/>
         <p>Мировоззрение</p>
       </div>
       <div class="lg:col-4 sm:col-6">
-        <input type="text" pInputText value="0"/>
+        <input type="text" pInputText [(ngModel)]="expirience" (change)="saveData('expirience', expirience)"/>
         <p>Опыт персонажа</p>
       </div>
     </div>
