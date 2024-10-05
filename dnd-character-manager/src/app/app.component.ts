@@ -18,9 +18,4 @@ import { FeaturesTraitsComponent } from '../features-traits/features-traits.comp
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'dnd-character-manager';
-  show: boolean = false;
-  writeInConsole(event: string){
-    console.error(event);
-  }
 }

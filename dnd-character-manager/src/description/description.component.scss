@@ -1,6 +1,9 @@
-.character-description__naming{
-  text-align: center;
-  font-weight: bold;
-  margin-top: 0;
-  margin-bottom: 20px;
+.character-description{
+  border-radius: 5px;
+  &__naming{
+    text-align: center;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
 }

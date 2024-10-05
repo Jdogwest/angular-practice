@@ -1,167 +1,167 @@
-<div class="stats">
+<div class="stats grid">
   <div class="stats__general general-stats">
-    <div class="general-stats__wrapper">
+    <div class="general-stats__wrapper grid justify-content-center">
       <p>Сила</p>
-      <p class="general-stats__stat-value">15</p>
-      <p>+2</p>
+      <input type="number" class="col-9" pInputText>
+      <input type="text" class="col-6" pInputText [maxLength]="2">
     </div>
-    <div class="general-stats__wrapper">
-      <p>Сила</p>
-      <p class="general-stats__stat-value">15</p>
-      <p>+2</p>
+    <div class="general-stats__wrapper grid justify-content-center">
+      <p>Ловкость</p>
+      <input type="number" class="col-9" pInputText>
+      <input type="text" class="col-6" pInputText [maxLength]="2">
     </div>
-    <div class="general-stats__wrapper">
-      <p>Сила</p>
-      <p class="general-stats__stat-value">15</p>
-      <p>+2</p>
+    <div class="general-stats__wrapper grid justify-content-center">
+      <p>Выносливость</p>
+      <input type="number" class="col-9" pInputText>
+      <input type="text" class="col-6" pInputText [maxLength]="2">
     </div>
-    <div class="general-stats__wrapper">
-      <p>Сила</p>
-      <p class="general-stats__stat-value">15</p>
-      <p>+2</p>
+    <div class="general-stats__wrapper grid justify-content-center">
+      <p>Интелект</p>
+      <input type="number" class="col-9" pInputText>
+      <input type="text" class="col-6" pInputText [maxLength]="2">
     </div>
-    <div class="general-stats__wrapper">
-      <p>Сила</p>
-      <p class="general-stats__stat-value">15</p>
-      <p>+2</p>
+    <div class="general-stats__wrapper grid justify-content-center">
+      <p>Мудрость</p>
+      <input type="number" class="col-9" pInputText>
+      <input type="text" class="col-6" pInputText [maxLength]="2">
     </div>
-    <div class="general-stats__wrapper">
-      <p>Сила</p>
-      <p class="general-stats__stat-value">15</p>
-      <p>+2</p>
+    <div class="general-stats__wrapper grid justify-content-center">
+      <p>Харизма</p>
+      <input type="number" class="col-9" pInputText>
+      <input type="text" class="col-6" pInputText [maxLength]="2">
     </div>
   </div>
   <div class="stats__substats substats">
     <div class="substats__single-stat-wrapper">
-      <p>7</p>
+      <input type="text" class="col-3" pInputText value="7">
       <p>Вдохновение</p>
     </div>
     <div class="substats__single-stat-wrapper">
-      <p>+4</p>
+      <input type="text" class="col-3" pInputText value="+4">
       <p>Бонус умения</p>
     </div>
     <div class="substats__challenges-skills challenges-skills">
       <div class="challenges-skills__stat-wrapper stat-wrapper">
-        <input type="checkbox" />
-        <p class="challenges-skills__stat-value">10</p>
+        <p-checkbox  class="col-offset-1"/>
+        <input type="text" class="col-2" pInputText value="10"/>
         <p class="challenges-skills__stat-name">Сила</p>
       </div>
       <div class="challenges-skills__stat-wrapper">
-        <input type="checkbox" />
-        <p class="challenges-skills__stat-value">10</p>
+        <p-checkbox  class="col-offset-1"/>
+        <input type="text" class="col-2" pInputText value="10"/>
         <p class="challenges-skills__stat-name">Ловкость</p>
       </div>
       <div class="challenges-skills__stat-wrapper">
-        <input type="checkbox" />
-        <p class="challenges-skills__stat-value">10</p>
+        <p-checkbox  class="col-offset-1"/>
+        <input type="text" class="col-2" pInputText value="10"/>
         <p class="challenges-skills__stat-name">Выносливость</p>
       </div>
       <div class="challenges-skills__stat-wrapper">
-        <input type="checkbox" />
-        <p class="challenges-skills__stat-value">10</p>
+        <p-checkbox  class="col-offset-1"/>
+        <input type="text" class="col-2" pInputText value="10"/>
         <p class="challenges-skills__stat-name">Интелект</p>
       </div>
       <div class="challenges-skills__stat-wrapper">
-        <input type="checkbox" />
-        <p class="challenges-skills__stat-value">10</p>
+        <p-checkbox  class="col-offset-1"/>
+        <input type="text" class="col-2" pInputText value="10"/>
         <p class="challenges-skills__stat-name">Мудрость</p>
       </div>
       <div class="challenges-skills__stat-wrapper">
-        <input type="checkbox" />
-        <p class="challenges-skills__stat-value">10</p>
+        <p-checkbox  class="col-offset-1"/>
+        <input type="text" class="col-2" pInputText value="10"/>
         <p class="challenges-skills__stat-name">Харизма</p>
       </div>
 
       <p class="challenges-skills__group-name">Испытания</p>
 
       <div class="challenges-skills__stat-wrapper">
-        <input type="checkbox" />
-        <p class="challenges-skills__stat-value">10</p>
+        <p-checkbox  class="col-offset-1"/>
+        <input type="text" class="col-2" pInputText value="10"/>
         <p class="challenges-skills__stat-name">Акробатика (лвк)</p>
       </div>
       <div class="challenges-skills__stat-wrapper">
-        <input type="checkbox" />
-        <p class="challenges-skills__stat-value">10</p>
+        <p-checkbox  class="col-offset-1"/>
+        <input type="text" class="col-2" pInputText value="10"/>
         <p class="challenges-skills__stat-name">Атлетика (сил)</p>
       </div>
       <div class="challenges-skills__stat-wrapper">
-        <input type="checkbox" />
-        <p class="challenges-skills__stat-value">10</p>
+        <p-checkbox  class="col-offset-1"/>
+        <input type="text" class="col-2" pInputText value="10"/>
         <p class="challenges-skills__stat-name">Внимание (мдр)</p>
       </div>
       <div class="challenges-skills__stat-wrapper">
-        <input type="checkbox" />
-        <p class="challenges-skills__stat-value">10</p>
+        <p-checkbox  class="col-offset-1"/>
+        <input type="text" class="col-2" pInputText value="10"/>
         <p class="challenges-skills__stat-name">Выживание (мдр)</p>
       </div>
       <div class="challenges-skills__stat-wrapper">
-        <input type="checkbox" />
-        <p class="challenges-skills__stat-value">10</p>
+        <p-checkbox  class="col-offset-1"/>
+        <input type="text" class="col-2" pInputText value="10"/>
         <p class="challenges-skills__stat-name">Дрессировка (мдр)</p>
       </div>
       <div class="challenges-skills__stat-wrapper">
-        <input type="checkbox" />
-        <p class="challenges-skills__stat-value">10</p>
+        <p-checkbox  class="col-offset-1"/>
+        <input type="text" class="col-2" pInputText value="10"/>
         <p class="challenges-skills__stat-name">Запугивание (хар)</p>
       </div>
       <div class="challenges-skills__stat-wrapper">
-        <input type="checkbox" />
-        <p class="challenges-skills__stat-value">10</p>
+        <p-checkbox  class="col-offset-1"/>
+        <input type="text" class="col-2" pInputText value="10"/>
         <p class="challenges-skills__stat-name">Исполнение (хар)</p>
       </div>
       <div class="challenges-skills__stat-wrapper">
-        <input type="checkbox" />
-        <p class="challenges-skills__stat-value">10</p>
+        <p-checkbox  class="col-offset-1"/>
+        <input type="text" class="col-2" pInputText value="10"/>
         <p class="challenges-skills__stat-name">История (инт)</p>
       </div>
       <div class="challenges-skills__stat-wrapper">
-        <input type="checkbox" />
-        <p class="challenges-skills__stat-value">10</p>
+        <p-checkbox  class="col-offset-1"/>
+        <input type="text" class="col-2" pInputText value="10"/>
         <p class="challenges-skills__stat-name">Ловкость рук (лвк)</p>
       </div>
       <div class="challenges-skills__stat-wrapper">
-        <input type="checkbox" />
-        <p class="challenges-skills__stat-value">10</p>
+        <p-checkbox  class="col-offset-1"/>
+        <input type="text" class="col-2" pInputText value="10"/>
         <p class="challenges-skills__stat-name">Магия (инт)</p>
       </div>
       <div class="challenges-skills__stat-wrapper">
-        <input type="checkbox" />
-        <p class="challenges-skills__stat-value">10</p>
+        <p-checkbox  class="col-offset-1"/>
+        <input type="text" class="col-2" pInputText value="10"/>
         <p class="challenges-skills__stat-name">Медицина (мдр)</p>
       </div>
       <div class="challenges-skills__stat-wrapper">
-        <input type="checkbox" />
-        <p class="challenges-skills__stat-value">10</p>
+        <p-checkbox  class="col-offset-1"/>
+        <input type="text" class="col-2" pInputText value="10"/>
         <p class="challenges-skills__stat-name">Обман (хар)</p>
       </div>
       <div class="challenges-skills__stat-wrapper">
-        <input type="checkbox" />
-        <p class="challenges-skills__stat-value">10</p>
+        <p-checkbox  class="col-offset-1"/>
+        <input type="text" class="col-2" pInputText value="10"/>
         <p class="challenges-skills__stat-name">Природа (инт)</p>
       </div>
       <div class="challenges-skills__stat-wrapper">
-        <input type="checkbox" />
-        <p class="challenges-skills__stat-value">10</p>
-        <p class="challenges-skills__stat-name">Проницательность (мдр)</p>
+        <p-checkbox  class="col-offset-1" />
+        <input type="text" class="col-2" pInputText value="10"/>
+        <p class="challenges-skills__stat-name" >Проницательность (мдр)</p>
       </div>
       <div class="challenges-skills__stat-wrapper">
-        <input type="checkbox" />
-        <p class="challenges-skills__stat-value">10</p>
+        <p-checkbox  class="col-offset-1"/>
+        <input type="text" class="col-2" pInputText value="10"/>
         <p class="challenges-skills__stat-name">Расследование (инт)</p>
       </div>
       <div class="challenges-skills__stat-wrapper">
-        <input type="checkbox" />
-        <p class="challenges-skills__stat-value">10</p>
+        <p-checkbox  class="col-offset-1"/>
+        <input type="text" class="col-2" pInputText value="10"/>
         <p class="challenges-skills__stat-name">Религия (инт)</p>
       </div>
       <div class="challenges-skills__stat-wrapper">
-        <input type="checkbox" />
-        <p class="challenges-skills__stat-value">10</p>
+        <p-checkbox  class="col-offset-1"/>
+        <input type="text" class="col-2" pInputText value="10"/>
         <p class="challenges-skills__stat-name">Скрытность (лвк)</p>
       </div>
       <div class="challenges-skills__stat-wrapper">
-        <input type="checkbox" />
-        <p class="challenges-skills__stat-value">10</p>
+        <p-checkbox  class="col-offset-1"/>
+        <input type="text" class="col-2" pInputText value="10"/>
         <p class="challenges-skills__stat-name">Убеждение (хар)</p>
       </div>
       <p class="challenges-skills__group-name">Навыки</p>

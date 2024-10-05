@@ -22,7 +22,6 @@
     margin-bottom: 7px;
   }
 }
-
 .substats {
   display: flex;
   flex-direction: column;
@@ -34,7 +33,9 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    & p:first-child {
+
+    & input {
+      text-align: center;
       font-size: 1.5em;
     }
   }
@@ -58,6 +59,9 @@
     display: flex;
     flex-wrap: wrap;
     flex-basis: 100%;
+    & input{
+      align-self: center;
+    }
   }
   &__stat-value {
     flex-basis: 10%;

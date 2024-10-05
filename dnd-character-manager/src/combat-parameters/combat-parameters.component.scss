@@ -1,4 +1,6 @@
 .combat-parameters {
+  background-color: lightgray;
+  border-radius: 5px;
   width: 100%;
   flex-basis: 100%;
   display: flex;
@@ -9,6 +11,9 @@
     flex-basis: 33%;
     justify-content: center;
     text-align: center;
+    & input{
+      width: 90px;
+    }
   }
 
   &__health-points {
@@ -26,6 +31,13 @@
     margin-right: 4px;
   }
 
+  &__health-points-max{
+    display: flex;
+    align-items: baseline;
+    & input{
+      width: 100px;
+    }
+  }
   &__dices-challenges-group {
     display: flex;
     width: 100%;
@@ -55,10 +67,13 @@
 }
 
 .dices {
+  text-align: center;
+  align-items: center;
+  & p{
+    margin: 5px;
+  }
   &__dice-text {
-    font-size: 32px;
-    width: 100%;
-    text-align: center;
+    font-size: 1.5em;
     margin: 3px;
   }
 
@@ -68,16 +83,12 @@
 }
 
 .challenges {
+  text-align: center;
   &__inputgroup {
     display: flex;
     flex-wrap: wrap;
     justify-content: end;
-    margin-right: 30px;
     flex-basis: 100%;
     align-items: center;
-  }
-
-  & input {
-    margin: 3px;
   }
 }
