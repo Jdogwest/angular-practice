@@ -1,23 +1,54 @@
 import { Injectable } from '@angular/core';
+import '../src/data-types/data.interfaces'
 
 @Injectable({
   providedIn: 'root',
 })
 export class StorageService {
-  public headerData: { [key: string]: any } = {};
-  public inventoryData: { [key: string]: any } = {};
-  public descriptionData: { [key: string]: any } = {};
-  public combatData: { [key: string]: any } = {};
-  public attacksSpellsData: { [key: string]: any } = {};
-  public statsData: { [key: string]: any } = {};
-  public abilLangs: string = '';
-  public featTraits: string = '';
+  public headerData!: headerDT;
+  public inventoryData!: inventoryDT;
+  public descriptionData!: descriptionDT;
+  public combatData!: combatDT;
+  public attacksSpellsData!: attacksSpellsDT;
+  public statsData!: statsDT;
+  public abilLangs!: string;
+  public featTraits!: string;
 
   constructor() {
     this.downloadFromLocalStorage();
   }
   getData(key: string): any {
     return localStorage.getItem(key);
+  }
+
+  setData(dataClass:string, key: any, data: any){
+    switch (dataClass){
+      case 'headerData':
+        this.headerData[key as keyof headerDT] = data;
+        break;
+      case 'inventoryData':
+        this.inventoryData[key as keyof inventoryDT] = data;
+        break;
+      case 'descriptionData':
+        this.descriptionData[key as keyof descriptionDT] = data;
+        break;
+      case 'combatData':
+        this.combatData[key as keyof combatDT] = data;
+        break;
+      case 'attackSpellsData':
+        this.attacksSpellsData[key as keyof attacksSpellsDT] = data;
+        break;
+      case 'statsData':
+        this.statsData[key as keyof statsDT] = data;
+        break;
+      case 'abilLang':
+        this.abilLangs = data;
+        break;
+      case 'featTraits':
+        this.featTraits = data;
+        break;
+    }
+    this.saveAllData();
   }
 
   saveAllData() {
@@ -38,9 +69,9 @@ export class StorageService {
   }
 
   downloadFromLocalStorage() {
-    const headerd = localStorage.getItem('headerData');
-    if (headerd) {
-      this.headerData = JSON.parse(headerd);
+    const headerData = localStorage.getItem('headerData');
+    if (headerData) {
+      this.headerData = JSON.parse(headerData);
     }
     const descriptionData = localStorage.getItem('descriptionData');
     if (descriptionData) {

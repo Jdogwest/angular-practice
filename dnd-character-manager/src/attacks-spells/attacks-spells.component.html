@@ -1,24 +1,85 @@
-<div class="attacks-spells">
-  <div class="attacks-spells__attacks grid">
-    <p class="col-5">Название</p>
-    <p class="col-2">Бонус атаки</p>
-    <p class="col-5">Урон и тип</p>
+<ng-container *transloco="let t">
+  <div class="attacks-spells">
+    <div class="attacks-spells__attacks grid">
+      <p class="col-5">{{t('weaponName')}}</p>
+      <p class="col-2">{{t('weaponBonus')}}</p>
+      <p class="col-5">{{t('weaponDmg')}}</p>
+    </div>
+    <div class="attacks-spells__attacks grid">
+      <input
+        type="text"
+        class="col-5"
+        pInputText
+        [(ngModel)]="attacksSpellsData.firstWeaponName"
+        (ngModelChange)="saveData('firstWeaponName', $event)"
+      />
+      <input
+        type="text"
+        class="col-2 text-center"
+        pInputText
+        [(ngModel)]="attacksSpellsData.firstWeaponBonus"
+        (ngModelChange)="saveData('firstWeaponBonus', $event)"
+      />
+      <input
+        type="text"
+        class="col-5"
+        pInputText
+        [(ngModel)]="attacksSpellsData.firstWeaponDamage"
+        (ngModelChange)="saveData('firstWeaponDamage', $event)"
+      />
+    </div>
+    <div class="attacks-spells__attacks grid">
+      <input
+        type="text"
+        class="col-5"
+        pInputText
+        [(ngModel)]="attacksSpellsData.secondWeaponName"
+        (ngModelChange)="saveData('secondWeaponName', $event)"
+      />
+      <input
+        type="text"
+        class="col-2 text-center"
+        pInputText
+        [(ngModel)]="attacksSpellsData.secondWeaponBonus"
+        (ngModelChange)="saveData('secondWeaponBonus', $event)"
+      />
+      <input
+        type="text"
+        class="col-5"
+        pInputText
+        [(ngModel)]="attacksSpellsData.secondWeaponDamage"
+        (ngModelChange)="saveData('secondWeaponDamage', $event)"
+      />
+    </div>
+    <div class="attacks-spells__attacks grid">
+      <input
+        type="text"
+        class="col-5"
+        pInputText
+        [(ngModel)]="attacksSpellsData.thirdWeaponName"
+        (ngModelChange)="saveData('thirdWeaponName', $event)"
+      />
+      <input
+        type="text"
+        class="col-2 text-center"
+        pInputText
+        [(ngModel)]="attacksSpellsData.thirdWeaponBonus"
+        (ngModelChange)="saveData('thirdWeaponBonus', $event)"
+      />
+      <input
+        type="text"
+        class="col-5"
+        pInputText
+        [(ngModel)]="attacksSpellsData.thirdWeapondamage"
+        (ngModelChange)="saveData('thirdWeapondamage', $event)"
+      />
+    </div>
+    <textarea
+      rows="12"
+      pInputTextarea
+      [(ngModel)]="attacksSpellsData.otherWeaponSpells"
+      (ngModelChange)="saveData('otherWeaponSpells', $event)"
+    ></textarea>
+    <p class="attacks-spells__undertext">{{t('attacksSpells')}}</p>
   </div>
-  <div class="attacks-spells__attacks grid">
-    <input type="text" class="col-5" pInputText [(ngModel)] = "firstWeaponName" (change)="saveData('firstWeaponName',firstWeaponName);">
-    <input type="text" class="col-2 text-center" pInputText [(ngModel)] = "firstWeaponBonus" (change)="saveData('firstWeaponBonus',firstWeaponBonus);">
-    <input type="text" class="col-5" pInputText [(ngModel)] = "firstWeaponDamage" (change)="saveData('firstWeaponDamage',firstWeaponDamage);">
-  </div>
-  <div class="attacks-spells__attacks grid">
-    <input type="text" class="col-5" pInputText [(ngModel)] = "secondWeaponName" (change)="saveData('secondWeaponName',secondWeaponName);">
-    <input type="text" class="col-2 text-center" pInputText [(ngModel)] = "secondWeaponBonus" (change)="saveData('secondWeaponBonus',secondWeaponBonus);">
-    <input type="text" class="col-5" pInputText [(ngModel)] = "secondWeaponDamage" (change)="saveData('secondWeaponDamage',secondWeaponDamage);">
-  </div>
-  <div class="attacks-spells__attacks grid">
-    <input type="text" class="col-5" pInputText [(ngModel)] = "thirdWeaponName" (change)="saveData('thirdWeaponName',thirdWeaponName);">
-    <input type="text" class="col-2 text-center" pInputText [(ngModel)] = "thirdWeaponBonus" (change)="saveData('thirdWeaponBonus',thirdWeaponBonus);">
-    <input type="text" class="col-5" pInputText [(ngModel)] = "thirdWeapondamage" (change)="saveData('thirdWeapondamage',thirdWeapondamage);">
-  </div>
-  <textarea rows="12" pInputTextarea [(ngModel)] = "otherWeaponSpells" (change)="saveData('otherWeaponSpells',otherWeaponSpells);"></textarea>
-  <p class="attacks-spells__undertext">Атаки и заклинания</p>
-</div>
+</ng-container>

@@ -1,170 +1,172 @@
-<div class="stats grid">
-  <div class="stats__general general-stats">
-    <div class="general-stats__wrapper grid justify-content-center">
-      <p>Сила</p>
-      <input type="number" class="col-9" pInputText [min]="0" [max]="20" [(ngModel)] = "strength" (change)="saveData('strength',strength); setBonus();">
-      <input type="text" class="col-6" pInputText [maxLength]="2" [(ngModel)] = "strengthBonus" [readOnly]="true">
+<ng-container *transloco="let t">
+  <div class="stats grid">
+    <div class="stats__general general-stats">
+      <div class="general-stats__wrapper grid justify-content-center">
+        <p>{{t('strength')}}</p>
+        <input type="number" class="col-9" pInputText [min]="0" [max]="20" [(ngModel)] = "statsData.strength" (ngModelChange)="saveData('strength', $event); setBonus();">
+        <input type="text" class="col-6" pInputText [maxLength]="2" [(ngModel)] = "strengthBonus" [readOnly]="true">
+      </div>
+      <div class="general-stats__wrapper grid justify-content-center">
+        <p>{{t('dextrity')}}</p>
+        <input type="number" class="col-9" pInputText [min]="0" [max]="20" [(ngModel)] = "statsData.dexterity" (ngModelChange)="saveData('dexterity',$event); setBonus();">
+        <input type="text" class="col-6" pInputText [maxLength]="2" [(ngModel)] = "dexterityBonus" [readOnly]="true">
+      </div>
+      <div class="general-stats__wrapper grid justify-content-center">
+        <p>{{t('constitution')}}</p>
+        <input type="number" class="col-9" pInputText [min]="0" [max]="20" [(ngModel)] = "statsData.constitution" (ngModelChange)="saveData('constitution',$event); setBonus();">
+        <input type="text" class="col-6" pInputText [maxLength]="2" [(ngModel)] = "constitutionBonus" [readOnly]="true">
+      </div>
+      <div class="general-stats__wrapper grid justify-content-center">
+        <p>{{t('intellegence')}}</p>
+        <input type="number" class="col-9" pInputText [min]="0" [max]="20" [(ngModel)] = "statsData.intelligence" (ngModelChange)="saveData('intelligence',$event); setBonus();">
+        <input type="text" class="col-6" pInputText [maxLength]="2" [(ngModel)] = "intelligenceBonus" [readOnly]="true">
+      </div>
+      <div class="general-stats__wrapper grid justify-content-center">
+        <p>{{t('wisdom')}}</p>
+        <input type="number" class="col-9" pInputText [min]="0" [max]="20" [(ngModel)] = "statsData.wisdom" (ngModelChange)="saveData('wisdom',$event); setBonus();">
+        <input type="text" class="col-6" pInputText [maxLength]="2" [(ngModel)] = "wisdomBonus" [readOnly]="true">
+      </div>
+      <div class="general-stats__wrapper grid justify-content-center">
+        <p>{{t('charisma')}}</p>
+        <input type="number" class="col-9" pInputText [min]="0" [max]="20" [(ngModel)] = "statsData.charisma" (ngModelChange)="saveData('charisma',$event); setBonus();">
+        <input type="text" class="col-6" pInputText [maxLength]="2" [(ngModel)] = "charismaBonus" [readOnly]="true">
+      </div>
     </div>
-    <div class="general-stats__wrapper grid justify-content-center">
-      <p>Ловкость</p>
-      <input type="number" class="col-9" pInputText [min]="0" [max]="20" [(ngModel)] = "dexterity" (change)="saveData('dexterity',dexterity); setBonus();">
-      <input type="text" class="col-6" pInputText [maxLength]="2" [(ngModel)] = "dexterityBonus" [readOnly]="true">
-    </div>
-    <div class="general-stats__wrapper grid justify-content-center">
-      <p>Выносливость</p>
-      <input type="number" class="col-9" pInputText [min]="0" [max]="20" [(ngModel)] = "constitution" (change)="saveData('constitution',constitution); setBonus();">
-      <input type="text" class="col-6" pInputText [maxLength]="2" [(ngModel)] = "constitutionBonus" [readOnly]="true">
-    </div>
-    <div class="general-stats__wrapper grid justify-content-center">
-      <p>Интелект</p>
-      <input type="number" class="col-9" pInputText [min]="0" [max]="20" [(ngModel)] = "intelligence" (change)="saveData('intelligence',intelligence); setBonus();">
-      <input type="text" class="col-6" pInputText [maxLength]="2" [(ngModel)] = "intelligenceBonus" [readOnly]="true">
-    </div>
-    <div class="general-stats__wrapper grid justify-content-center">
-      <p>Мудрость</p>
-      <input type="number" class="col-9" pInputText [min]="0" [max]="20" [(ngModel)] = "wisdom" (change)="saveData('wisdom',wisdom); setBonus();">
-      <input type="text" class="col-6" pInputText [maxLength]="2" [(ngModel)] = "wisdomBonus" [readOnly]="true">
-    </div>
-    <div class="general-stats__wrapper grid justify-content-center">
-      <p>Харизма</p>
-      <input type="number" class="col-9" pInputText [min]="0" [max]="20" [(ngModel)] = "charisma" (change)="saveData('charisma',charisma); setBonus();">
-      <input type="text" class="col-6" pInputText [maxLength]="2" [(ngModel)] = "charismaBonus" [readOnly]="true">
+    <div class="stats__substats substats">
+      <div class="substats__single-stat-wrapper grid">
+        <input type="text" class="col-3 col-offset-1" pInputText [(ngModel)] = "statsData.inspiration" (ngModelChange)="saveData('inspiration',$event);">
+        <p class="col-8">{{t('inspiration')}}</p>
+      </div>
+      <div class="substats__single-stat-wrapper grid">
+        <input type="text" class="col-3 col-offset-1" pInputText [(ngModel)] = "statsData.profienceBonus" (ngModelChange)="saveData('profienceBonus',$event);">
+        <p class="col-8">{{t('proficiency')}}</p>
+      </div>
+      <div class="substats__challenges-skills challenges-skills">
+        <div class="challenges-skills__stat-wrapper stat-wrapper">
+          <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "statsData.strengthChalChb" (ngModelChange)="saveData('strengthChalChb',$event);"/>
+          <input type="text" class="col-2" pInputText [(ngModel)] = "statsData.strengthChalVal" (ngModelChange)="saveData('strengthChalVal',$event);" [max]="20" [min]="0" maxlength="2"/>
+          <p class="challenges-skills__stat-name">{{t('strength')}}</p>
+        </div>
+        <div class="challenges-skills__stat-wrapper">
+          <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "statsData.dexterityChalChb" (ngModelChange)="saveData('dexterityChalChb',$event);"/>
+          <input type="text" class="col-2" pInputText [(ngModel)] = "statsData.dexterityChalVal" (ngModelChange)="saveData('dexterityChalVal',$event);" [max]="20" [min]="0" maxlength="2"/>
+          <p class="challenges-skills__stat-name">{{t('dextrity')}}</p>
+        </div>
+        <div class="challenges-skills__stat-wrapper">
+          <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "statsData.constitutionChalChb" (ngModelChange)="saveData('constitutionChalChb',$event);"/>
+          <input type="text" class="col-2" pInputText [(ngModel)] = "statsData.constitutionChalVal" (ngModelChange)="saveData('constitutionChalVal',$event);" [max]="20" [min]="0" maxlength="2"/>
+          <p class="challenges-skills__stat-name">{{t('constitution')}}</p>
+        </div>
+        <div class="challenges-skills__stat-wrapper">
+          <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "statsData.intelligenceChalChb" (ngModelChange)="saveData('intelligenceChalChb',$event);"/>
+          <input type="text" class="col-2" pInputText [(ngModel)] = "statsData.intelligenceChalVal" (ngModelChange)="saveData('intelligenceChalVal',$event);" [max]="20" [min]="0" maxlength="2"/>
+          <p class="challenges-skills__stat-name">{{t('intellegence')}}</p>
+        </div>
+        <div class="challenges-skills__stat-wrapper">
+          <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "statsData.wisdomChalChb" (ngModelChange)="saveData('wisdomChalChb',$event);"/>
+          <input type="text" class="col-2" pInputText [(ngModel)] = "statsData.wisdomChalVal" (ngModelChange)="saveData('wisdomChalVal',$event);" [max]="20" [min]="0" maxlength="2"/>
+          <p class="challenges-skills__stat-name">{{t('wisdom')}}</p>
+        </div>
+        <div class="challenges-skills__stat-wrapper">
+          <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "statsData.charismaChalChb" (ngModelChange)="saveData('charismaChalChb',$event);"/>
+          <input type="text" class="col-2" pInputText [(ngModel)] = "statsData.charismaChalVal" (ngModelChange)="saveData('charismaChalVal',$event);" [max]="20" [min]="0" maxlength="2"/>
+          <p class="challenges-skills__stat-name">{{t('charisma')}}</p>
+        </div>
+
+        <p class="challenges-skills__group-name">{{t('challenges')}}</p>
+
+        <div class="challenges-skills__stat-wrapper">
+          <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "statsData.acrobaticsChb" (ngModelChange)="saveData('acrobaticsChb',$event);"/>
+          <input type="text" class="col-2" pInputText [(ngModel)] = "statsData.acrobaticsVal" (ngModelChange)="saveData('acrobaticsVal',$event);" [max]="20" [min]="0" maxlength="2"/>
+          <p class="challenges-skills__stat-name">{{t('acrobatics')}}{{t('dex')}}</p>
+        </div>
+        <div class="challenges-skills__stat-wrapper">
+          <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "statsData.athleticsChb" (ngModelChange)="saveData('athleticsChb',$event);"/>
+          <input type="text" class="col-2" pInputText [(ngModel)] = "statsData.athleticsVal" (ngModelChange)="saveData('athleticsVal',$event);" [max]="20" [min]="0" maxlength="2"/>
+          <p class="challenges-skills__stat-name">{{t('athletics')}}{{t('str')}}</p>
+        </div>
+        <div class="challenges-skills__stat-wrapper">
+          <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "statsData.perceptionChb" (ngModelChange)="saveData('perceptionChb',$event);"/>
+          <input type="text" class="col-2" pInputText [(ngModel)] = "statsData.perceptionVal" (ngModelChange)="saveData('perceptionVal',$event);" [max]="20" [min]="0" maxlength="2"/>
+          <p class="challenges-skills__stat-name">{{t('perception')}}{{t('wis')}}</p>
+        </div>
+        <div class="challenges-skills__stat-wrapper">
+          <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "statsData.survivalChb" (ngModelChange)="saveData('survivalChb',$event);"/>
+          <input type="text" class="col-2" pInputText [(ngModel)] = "statsData.survivalVal" (ngModelChange)="saveData('survivalVal',$event);" [max]="20" [min]="0" maxlength="2"/>
+          <p class="challenges-skills__stat-name">{{t('survival')}}{{t('wis')}}</p>
+        </div>
+        <div class="challenges-skills__stat-wrapper">
+          <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "statsData.handlingChb" (ngModelChange)="saveData('handlingChb',$event);"/>
+          <input type="text" class="col-2" pInputText [(ngModel)] = "statsData.handlingVal" (ngModelChange)="saveData('handlingVal',$event);" [max]="20" [min]="0" maxlength="2"/>
+          <p class="challenges-skills__stat-name">{{t('handling')}}{{t('wis')}}</p>
+        </div>
+        <div class="challenges-skills__stat-wrapper">
+          <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "statsData.intimidationChb" (ngModelChange)="saveData('intimidationChb',$event);"/>
+          <input type="text" class="col-2" pInputText [(ngModel)] = "statsData.intimidationVal" (ngModelChange)="saveData('intimidationVal',$event);" [max]="20" [min]="0" maxlength="2"/>
+          <p class="challenges-skills__stat-name">{{t('intimidation')}}{{t('cha')}}</p>
+        </div>
+        <div class="challenges-skills__stat-wrapper">
+          <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "statsData.perfomanceChb" (ngModelChange)="saveData('perfomanceChb',$event);"/>
+          <input type="text" class="col-2" pInputText [(ngModel)] = "statsData.perfomanceVal" (ngModelChange)="saveData('perfomanceVal',$event);" [max]="20" [min]="0" maxlength="2"/>
+          <p class="challenges-skills__stat-name">{{t('perfomance')}}{{t('cha')}}</p>
+        </div>
+        <div class="challenges-skills__stat-wrapper">
+          <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "statsData.historyChb" (ngModelChange)="saveData('historyChb',$event);"/>
+          <input type="text" class="col-2" pInputText [(ngModel)] = "statsData.historyVal" (ngModelChange)="saveData('historyVal',$event);" [max]="20" [min]="0" maxlength="2"/>
+          <p class="challenges-skills__stat-name">{{t('history')}}{{t('int')}}</p>
+        </div>
+        <div class="challenges-skills__stat-wrapper">
+          <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "statsData.sleightOfHandChb" (ngModelChange)="saveData('sleightOfHandChb',$event);"/>
+          <input type="text" class="col-2" pInputText [(ngModel)] = "statsData.sleightOfHandVal" (ngModelChange)="saveData('sleightOfHandVal',$event);" [max]="20" [min]="0" maxlength="2"/>
+          <p class="challenges-skills__stat-name">{{t('sleightOfHand')}}{{t('dex')}}</p>
+        </div>
+        <div class="challenges-skills__stat-wrapper">
+          <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "statsData.arcanaChb" (ngModelChange)="saveData('arcanaChb',$event);"/>
+          <input type="text" class="col-2" pInputText [(ngModel)] = "statsData.arcanaVal" (ngModelChange)="saveData('arcanaVal',$event);" [max]="20" [min]="0" maxlength="2"/>
+          <p class="challenges-skills__stat-name">{{t('arcana')}}{{t('int')}}</p>
+        </div>
+        <div class="challenges-skills__stat-wrapper">
+          <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "statsData.medicineChb" (ngModelChange)="saveData('medicineChb',$event);"/>
+          <input type="text" class="col-2" pInputText [(ngModel)] = "statsData.medicineVal" (ngModelChange)="saveData('medicineVal',$event);" [max]="20" [min]="0" maxlength="2"/>
+          <p class="challenges-skills__stat-name">{{t('medicine')}}{{t('wis')}}</p>
+        </div>
+        <div class="challenges-skills__stat-wrapper">
+          <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "statsData.deceptionChb" (ngModelChange)="saveData('deceptionChb',$event);"/>
+          <input type="text" class="col-2" pInputText [(ngModel)] = "statsData.deceptionVal" (ngModelChange)="saveData('deceptionVal',$event);" [max]="20" [min]="0" maxlength="2"/>
+          <p class="challenges-skills__stat-name">{{t('deception')}}{{t('cha')}}</p>
+        </div>
+        <div class="challenges-skills__stat-wrapper">
+          <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "statsData.natureChb" (ngModelChange)="saveData('natureChb',$event);"/>
+          <input type="text" class="col-2" pInputText [(ngModel)] = "statsData.natureVal" (ngModelChange)="saveData('natureVal',$event);" [max]="20" [min]="0" maxlength="2"/>
+          <p class="challenges-skills__stat-name">{{t('nature')}}{{t('int')}}</p>
+        </div>
+        <div class="challenges-skills__stat-wrapper">
+          <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "statsData.insightChb" (ngModelChange)="saveData('insightChb',$event);"/>
+          <input type="text" class="col-2" pInputText [(ngModel)] = "statsData.insightVal" (ngModelChange)="saveData('insightVal',$event);" [max]="20" [min]="0" maxlength="2"/>
+          <p class="challenges-skills__stat-name" >{{t('insight')}}{{t('wis')}}</p>
+        </div>
+        <div class="challenges-skills__stat-wrapper">
+          <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "statsData.investigationChb" (ngModelChange)="saveData('investigationChb',$event);"/>
+          <input type="text" class="col-2" pInputText [(ngModel)] = "statsData.investigationVal" (ngModelChange)="saveData('investigationVal',$event);" [max]="20" [min]="0" maxlength="2"/>
+          <p class="challenges-skills__stat-name">{{t('investigation')}}{{t('int')}}</p>
+        </div>
+        <div class="challenges-skills__stat-wrapper">
+          <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "statsData.religionChb" (ngModelChange)="saveData('religionChb',$event);"/>
+          <input type="text" class="col-2" pInputText [(ngModel)] = "statsData.religionVal" (ngModelChange)="saveData('religionVal',$event);" [max]="20" [min]="0" maxlength="2"/>
+          <p class="challenges-skills__stat-name">{{t('religion')}}{{t('int')}}</p>
+        </div>
+        <div class="challenges-skills__stat-wrapper">
+          <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "statsData.stealthChb" (ngModelChange)="saveData('stealthChb',$event);"/>
+          <input type="text" class="col-2" pInputText [(ngModel)] = "statsData.stealthVal" (ngModelChange)="saveData('stealthVal',$event);" [max]="20" [min]="0" maxlength="2"/>
+          <p class="challenges-skills__stat-name">{{t('stealth')}}{{t('dex')}}</p>
+        </div>
+        <div class="challenges-skills__stat-wrapper">
+          <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "statsData.persuasionChb" (ngModelChange)="saveData('persuasionChb',$event);"/>
+          <input type="text" class="col-2" pInputText [(ngModel)] = "statsData.persuasionVal" (ngModelChange)="saveData('persuasionVal',$event);" [max]="20" [min]="0" maxlength="2"/>
+          <p class="challenges-skills__stat-name">{{t('persuasion')}}{{t('cha')}}</p>
+        </div>
+        <p class="challenges-skills__group-name">{{t('skills')}}</p>
+      </div>
     </div>
   </div>
-  <div class="stats__substats substats">
-    <div class="substats__single-stat-wrapper">
-      <input type="text" class="col-3" pInputText [(ngModel)] = "inspiration" (change)="saveData('inspiration',inspiration);">
-      <p>Вдохновение</p>
-    </div>
-    <div class="substats__single-stat-wrapper">
-      <input type="text" class="col-3" pInputText [(ngModel)] = "profienceBonus" (change)="saveData('profienceBonus',profienceBonus);">
-      <p>Бонус умения</p>
-    </div>
-    <div class="substats__challenges-skills challenges-skills">
-      <div class="challenges-skills__stat-wrapper stat-wrapper">
-        <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "strengthChalChb" (onChange)="saveData('strengthChalChb',strengthChalChb);"/>
-        <input type="text" class="col-2" pInputText [(ngModel)] = "strengthChalVal" (change)="saveData('strengthChalVal',strengthChalVal);" [max]="20" [min]="0" maxlength="2"/>
-        <p class="challenges-skills__stat-name">Сила</p>
-      </div>
-      <div class="challenges-skills__stat-wrapper">
-        <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "dexterityChalChb" (onChange)="saveData('dexterityChalChb',dexterityChalChb);"/>
-        <input type="text" class="col-2" pInputText [(ngModel)] = "dexterityChalVal" (change)="saveData('dexterityChalVal',dexterityChalVal);" [max]="20" [min]="0" maxlength="2"/>
-        <p class="challenges-skills__stat-name">Ловкость</p>
-      </div>
-      <div class="challenges-skills__stat-wrapper">
-        <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "constitutionChalChb" (onChange)="saveData('constitutionChalChb',constitutionChalChb);"/>
-        <input type="text" class="col-2" pInputText [(ngModel)] = "constitutionChalVal" (change)="saveData('constitutionChalVal',constitutionChalVal);" [max]="20" [min]="0" maxlength="2"/>
-        <p class="challenges-skills__stat-name">Выносливость</p>
-      </div>
-      <div class="challenges-skills__stat-wrapper">
-        <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "intelligenceChalChb" (onChange)="saveData('intelligenceChalChb',intelligenceChalChb);"/>
-        <input type="text" class="col-2" pInputText [(ngModel)] = "intelligenceChalVal" (change)="saveData('intelligenceChalVal',intelligenceChalVal);" [max]="20" [min]="0" maxlength="2"/>
-        <p class="challenges-skills__stat-name">Интелект</p>
-      </div>
-      <div class="challenges-skills__stat-wrapper">
-        <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "wisdomChalChb" (onChange)="saveData('wisdomChalChb',wisdomChalChb);"/>
-        <input type="text" class="col-2" pInputText [(ngModel)] = "wisdomChalVal" (change)="saveData('wisdomChalVal',wisdomChalVal);" [max]="20" [min]="0" maxlength="2"/>
-        <p class="challenges-skills__stat-name">Мудрость</p>
-      </div>
-      <div class="challenges-skills__stat-wrapper">
-        <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "charismaChalChb" (onChange)="saveData('charismaChalChb',charismaChalChb);"/>
-        <input type="text" class="col-2" pInputText [(ngModel)] = "charismaChalVal" (change)="saveData('charismaChalVal',charismaChalVal);" [max]="20" [min]="0" maxlength="2"/>
-        <p class="challenges-skills__stat-name">Харизма</p>
-      </div>
-
-      <p class="challenges-skills__group-name">Испытания</p>
-
-      <div class="challenges-skills__stat-wrapper">
-        <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "acrobaticsChb" (onChange)="saveData('acrobaticsChb',acrobaticsChb);"/>
-        <input type="text" class="col-2" pInputText [(ngModel)] = "acrobaticsVal" (change)="saveData('acrobaticsVal',acrobaticsVal);" [max]="20" [min]="0" maxlength="2"/>
-        <p class="challenges-skills__stat-name">Акробатика (лвк)</p>
-      </div>
-      <div class="challenges-skills__stat-wrapper">
-        <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "athleticsChb" (onChange)="saveData('athleticsChb',athleticsChb);"/>
-        <input type="text" class="col-2" pInputText [(ngModel)] = "athleticsVal" (change)="saveData('athleticsVal',athleticsVal);" [max]="20" [min]="0" maxlength="2"/>
-        <p class="challenges-skills__stat-name">Атлетика (сил)</p>
-      </div>
-      <div class="challenges-skills__stat-wrapper">
-        <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "perceptionChb" (onChange)="saveData('perceptionChb',perceptionChb);"/>
-        <input type="text" class="col-2" pInputText [(ngModel)] = "perceptionVal" (change)="saveData('perceptionVal',perceptionVal);" [max]="20" [min]="0" maxlength="2"/>
-        <p class="challenges-skills__stat-name">Внимание (мдр)</p>
-      </div>
-      <div class="challenges-skills__stat-wrapper">
-        <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "survivalChb" (onChange)="saveData('survivalChb',survivalChb);"/>
-        <input type="text" class="col-2" pInputText [(ngModel)] = "survivalVal" (change)="saveData('survivalVal',survivalVal);" [max]="20" [min]="0" maxlength="2"/>
-        <p class="challenges-skills__stat-name">Выживание (мдр)</p>
-      </div>
-      <div class="challenges-skills__stat-wrapper">
-        <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "handlingChb" (onChange)="saveData('handlingChb',handlingChb);"/>
-        <input type="text" class="col-2" pInputText [(ngModel)] = "handlingVal" (change)="saveData('handlingVal',handlingVal);" [max]="20" [min]="0" maxlength="2"/>
-        <p class="challenges-skills__stat-name">Дрессировка (мдр)</p>
-      </div>
-      <div class="challenges-skills__stat-wrapper">
-        <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "intimidationChb" (onChange)="saveData('intimidationChb',intimidationChb);"/>
-        <input type="text" class="col-2" pInputText [(ngModel)] = "intimidationVal" (change)="saveData('intimidationVal',intimidationVal);" [max]="20" [min]="0" maxlength="2"/>
-        <p class="challenges-skills__stat-name">Запугивание (хар)</p>
-      </div>
-      <div class="challenges-skills__stat-wrapper">
-        <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "perfomanceChb" (onChange)="saveData('perfomanceChb',perfomanceChb);"/>
-        <input type="text" class="col-2" pInputText [(ngModel)] = "perfomanceVal" (change)="saveData('perfomanceVal',perfomanceVal);" [max]="20" [min]="0" maxlength="2"/>
-        <p class="challenges-skills__stat-name">Исполнение (хар)</p>
-      </div>
-      <div class="challenges-skills__stat-wrapper">
-        <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "historyChb" (onChange)="saveData('historyChb',historyChb);"/>
-        <input type="text" class="col-2" pInputText [(ngModel)] = "historyVal" (change)="saveData('historyVal',historyVal);" [max]="20" [min]="0" maxlength="2"/>
-        <p class="challenges-skills__stat-name">История (инт)</p>
-      </div>
-      <div class="challenges-skills__stat-wrapper">
-        <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "sleightOfHandChb" (onChange)="saveData('sleightOfHandChb',sleightOfHandChb);"/>
-        <input type="text" class="col-2" pInputText [(ngModel)] = "sleightOfHandVal" (change)="saveData('sleightOfHandVal',sleightOfHandVal);" [max]="20" [min]="0" maxlength="2"/>
-        <p class="challenges-skills__stat-name">Ловкость рук (лвк)</p>
-      </div>
-      <div class="challenges-skills__stat-wrapper">
-        <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "arcanaChb" (onChange)="saveData('arcanaChb',arcanaChb);"/>
-        <input type="text" class="col-2" pInputText [(ngModel)] = "arcanaVal" (change)="saveData('arcanaVal',arcanaVal);" [max]="20" [min]="0" maxlength="2"/>
-        <p class="challenges-skills__stat-name">Магия (инт)</p>
-      </div>
-      <div class="challenges-skills__stat-wrapper">
-        <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "medicineChb" (onChange)="saveData('medicineChb',medicineChb);"/>
-        <input type="text" class="col-2" pInputText [(ngModel)] = "medicineVal" (change)="saveData('medicineVal',medicineVal);" [max]="20" [min]="0" maxlength="2"/>
-        <p class="challenges-skills__stat-name">Медицина (мдр)</p>
-      </div>
-      <div class="challenges-skills__stat-wrapper">
-        <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "deceptionChb" (onChange)="saveData('deceptionChb',deceptionChb);"/>
-        <input type="text" class="col-2" pInputText [(ngModel)] = "deceptionVal" (change)="saveData('deceptionVal',deceptionVal);" [max]="20" [min]="0" maxlength="2"/>
-        <p class="challenges-skills__stat-name">Обман (хар)</p>
-      </div>
-      <div class="challenges-skills__stat-wrapper">
-        <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "natureChb" (onChange)="saveData('natureChb',natureChb);"/>
-        <input type="text" class="col-2" pInputText [(ngModel)] = "natureVal" (change)="saveData('natureVal',natureVal);" [max]="20" [min]="0" maxlength="2"/>
-        <p class="challenges-skills__stat-name">Природа (инт)</p>
-      </div>
-      <div class="challenges-skills__stat-wrapper">
-        <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "insightChb" (onChange)="saveData('insightChb',insightChb);"/>
-        <input type="text" class="col-2" pInputText [(ngModel)] = "insightVal" (change)="saveData('insightVal',insightVal);" [max]="20" [min]="0" maxlength="2"/>
-        <p class="challenges-skills__stat-name" >Проницательность (мдр)</p>
-      </div>
-      <div class="challenges-skills__stat-wrapper">
-        <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "investigationChb" (onChange)="saveData('investigationChb',investigationChb);"/>
-        <input type="text" class="col-2" pInputText [(ngModel)] = "investigationVal" (change)="saveData('investigationVal',investigationVal);" [max]="20" [min]="0" maxlength="2"/>
-        <p class="challenges-skills__stat-name">Расследование (инт)</p>
-      </div>
-      <div class="challenges-skills__stat-wrapper">
-        <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "religionChb" (onChange)="saveData('religionChb',religionChb);"/>
-        <input type="text" class="col-2" pInputText [(ngModel)] = "religionVal" (change)="saveData('religionVal',religionVal);" [max]="20" [min]="0" maxlength="2"/>
-        <p class="challenges-skills__stat-name">Религия (инт)</p>
-      </div>
-      <div class="challenges-skills__stat-wrapper">
-        <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "stealthChb" (onChange)="saveData('stealthChb',stealthChb);"/>
-        <input type="text" class="col-2" pInputText [(ngModel)] = "stealthVal" (change)="saveData('stealthVal',stealthVal);" [max]="20" [min]="0" maxlength="2"/>
-        <p class="challenges-skills__stat-name">Скрытность (лвк)</p>
-      </div>
-      <div class="challenges-skills__stat-wrapper">
-        <p-checkbox  class="col-offset-1" [binary]="true" [(ngModel)] = "persuasionChb" (onChange)="saveData('persuasionChb',persuasionChb);"/>
-        <input type="text" class="col-2" pInputText [(ngModel)] = "persuasionVal" (change)="saveData('persuasionVal',persuasionVal);" [max]="20" [min]="0" maxlength="2"/>
-        <p class="challenges-skills__stat-name">Убеждение (хар)</p>
-      </div>
-      <p class="challenges-skills__group-name">Навыки</p>
-    </div>
-  </div>
-</div>
+</ng-container>

@@ -1,9 +1,11 @@
-<div class="abilities-languages">
-  <textarea
-    rows="13"
-    pInputTextarea
-    [(ngModel)] = "abilLang"
-    (change)="saveData(abilLang);"
+<ng-container *transloco="let t">
+  <div class="abilities-languages">
+    <textarea
+      rows="13"
+      pInputTextarea
+      [(ngModel)]="abilLang"
+      (ngModelChange)="saveData($event)"
     ></textarea>
-  <p>Прочие умения и языки</p>
-</div>
+    <p>{{t('abillitiesLangs')}}</p>
+  </div>
+</ng-container>

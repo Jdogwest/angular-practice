@@ -1,28 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { StorageService } from '../storage.service';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-description',
   standalone: true,
-  imports: [InputTextareaModule, FormsModule],
+  imports: [InputTextareaModule, FormsModule, TranslocoModule],
   templateUrl: './description.component.html',
   styleUrl: './description.component.scss'
 })
 export class DescriptionComponent {
-  personality: string = '';
-  ideals: string = '';
-  bonds: string = '';
-  flaws: string = '';
-  constructor(private storageService: StorageService) {
-    this.personality = this.storageService.descriptionData['personality'] ?? '';
-    this.ideals = this.storageService.descriptionData['ideals'] ?? '';
-    this.bonds = this.storageService.descriptionData['bonds'] ?? '';
-    this.flaws = this.storageService.descriptionData['flaws'] ?? '';
-  }
-  saveData(key: string, data: any){
-    this.storageService.descriptionData[key] = data;
-    this.storageService.saveAllData();
+  @Input({ required: true }) descriptionData!: descriptionDT;
+  @Output() onSave: EventEmitter<{dataClass: string, dataName: string, dataValue: any}> = new EventEmitter();
+
+  saveData(key: string, data: any) {
+    this.onSave.emit({dataClass: 'descriptionData' ,dataName: key, dataValue: data});
   }
 }

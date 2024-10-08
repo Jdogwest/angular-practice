@@ -1,59 +1,125 @@
-<div class="combat-parameters">
-  <div class="combat-parameters__three-big-params">
-    <input type="number" pInputText value="18" [(ngModel)] = "armorClass" (change)="saveData('armorClass',armorClass);">
-    <p>Класс брони</p>
-  </div>
-  <div class="combat-parameters__three-big-params">
-    <input type="number" pInputText value="5" [(ngModel)] = "initiative" (change)="saveData('initiative',initiative);">
-    <p>Инициатива</p>
-  </div>
-  <div class="combat-parameters__three-big-params">
-    <input type="number" pInputText value="30" [(ngModel)] = "speed" (change)="saveData('speed',speed);">
-    <p>Скорость</p>
-  </div>
-  <div class="combat-parameters__health-points">
-    <div class="combat-parameters__health-points-max">
-      <p>Максимум ПЗ</p>
-      <input type="number" pInputText value="80" [(ngModel)] = "maxHP" (change)="saveData('maxHP',maxHP);">
+<ng-container *transloco="let t">
+  <div class="combat-parameters">
+    <div class="combat-parameters__three-big-params">
+      <input
+        type="number"
+        pInputText
+        value="18"
+        [(ngModel)]="combatData.armorClass"
+        (ngModelChange)="saveData('armorClass', $event)"
+      />
+      <p>{{t('armorClass')}}</p>
     </div>
-    <textarea
-    rows="3"
-    pInputTextarea
-    [(ngModel)] = "currentHP"
-    (change)="saveData('currentHP',currentHP);"
-    ></textarea>
-    <p>Текущие пункты здоровья</p>
-  </div>
-  <div class="combat-parameters__health-points">
-    <textarea
-    rows="3"
-    pInputTextarea
-    [(ngModel)] = "temporaryHP"
-    (change)="saveData('temporaryHP',temporaryHP);"
-    ></textarea>
-    <p>Временные пункты здоровья</p>
-  </div>
-  <div class="combat-parameters__dices-challenges-group dices-challenges-group">
-    <div class="dices-challenges-group__dices dices grid">
-      <p class="col-5">Всего</p>
-      <input type="text" class="dices__dice-text col-5" pInputText value="12" [(ngModel)] = "totalHD" (change)="saveData('totalHD',totalHD);">
-      <input type="text" class="dices__dice-text col-10" pInputText value="d8" [(ngModel)] = "diceName" (change)="saveData('diceName',diceName);">
-      <p>Кости здоровья</p>
+    <div class="combat-parameters__three-big-params">
+      <input
+        type="number"
+        pInputText
+        value="5"
+        [(ngModel)]="combatData.initiative"
+        (ngModelChange)="saveData('initiative', $event)"
+      />
+      <p>{{t('initiative')}}</p>
     </div>
-    <div class="dices-challenges-group__challenges challenges">
-      <div class="challenges__inputgroup">
-        <p>Успехи</p>
-        <p-checkbox [binary]="true" [(ngModel)]="successFirst" (onChange)="saveData('successFirst',successFirst);"/>
-        <p-checkbox [binary]="true" [(ngModel)]="successSecond" (onChange)="saveData('successSecond',successSecond);"/>
-        <p-checkbox [binary]="true" [(ngModel)]="successThird" (onChange)="saveData('successThird',successThird);"/>
+    <div class="combat-parameters__three-big-params">
+      <input
+        type="number"
+        pInputText
+        value="30"
+        [(ngModel)]="combatData.speed"
+        (ngModelChange)="saveData('speed', $event)"
+      />
+      <p>{{t('speed')}}</p>
+    </div>
+    <div class="combat-parameters__health-points">
+      <div class="combat-parameters__health-points-max">
+        <p>{{t('maxHP')}}</p>
+        <input
+          type="number"
+          pInputText
+          value="80"
+          [(ngModel)]="combatData.maxHP"
+          (ngModelChange)="saveData('maxHP', $event)"
+        />
       </div>
-      <div class="challenges__inputgroup">
-        <p>Провалы</p>
-        <p-checkbox [binary]="true" [(ngModel)]="failureFirst" (onChange)="saveData('failureFirst',failureFirst);"/>
-        <p-checkbox [binary]="true" [(ngModel)]="failureSecond" (onChange)="saveData('failureSecond',failureSecond);"/>
-        <p-checkbox [binary]="true" [(ngModel)]="failureThird" (onChange)="saveData('failureThird',failureThird);"/>
+      <textarea
+        rows="3"
+        pInputTextarea
+        [(ngModel)]="combatData.currentHP"
+        (ngModelChange)="saveData('currentHP', $event)"
+      ></textarea>
+      <p>{{t('currentHP')}}</p>
+    </div>
+    <div class="combat-parameters__health-points">
+      <textarea
+        rows="3"
+        pInputTextarea
+        [(ngModel)]="combatData.temporaryHP"
+        (ngModelChange)="saveData('temporaryHP', $event)"
+      ></textarea>
+      <p>{{t('temporaryHP')}}</p>
+    </div>
+    <div
+      class="combat-parameters__dices-challenges-group dices-challenges-group"
+    >
+      <div class="dices-challenges-group__dices dices grid">
+        <p class="col-5">{{t('totalHD')}}</p>
+        <input
+          type="text"
+          class="dices__dice-text col-5"
+          pInputText
+          value="12"
+          [(ngModel)]="combatData.totalHD"
+          (ngModelChange)="saveData('totalHD', $event)"
+        />
+        <input
+          type="text"
+          class="dices__dice-text col-10"
+          pInputText
+          value="d8"
+          [(ngModel)]="combatData.diceName"
+          (ngModelChange)="saveData('diceName', $event)"
+        />
+        <p>{{t('hitDice')}}</p>
       </div>
-      <p>Испыт. против смерти</p>
+      <div class="dices-challenges-group__challenges challenges">
+        <div class="challenges__inputgroup">
+          <p>{{t('success')}}</p>
+          <p-checkbox
+            [binary]="true"
+            [(ngModel)]="combatData.successFirst"
+            (ngModelChange)="saveData('successFirst', $event)"
+          />
+          <p-checkbox
+            [binary]="true"
+            [(ngModel)]="combatData.successSecond"
+            (ngModelChange)="saveData('successSecond', $event)"
+          />
+          <p-checkbox
+            [binary]="true"
+            [(ngModel)]="combatData.successThird"
+            (ngModelChange)="saveData('successThird', $event)"
+          />
+        </div>
+        <div class="challenges__inputgroup">
+          <p>{{t('failures')}}</p>
+          <p-checkbox
+            [binary]="true"
+            [(ngModel)]="combatData.failureFirst"
+            (ngModelChange)="saveData('failureFirst', $event)"
+          />
+          <p-checkbox
+            [binary]="true"
+            [(ngModel)]="combatData.failureSecond"
+            (ngModelChange)="saveData('failureSecond', $event)"
+          />
+          <p-checkbox
+            [binary]="true"
+            [(ngModel)]="combatData.failureThird"
+            (ngModelChange)="saveData('failureThird', $event)"
+          />
+        </div>
+        <p>{{t('challengesDeath')}}</p>
+      </div>
     </div>
   </div>
-</div>
+</ng-container>

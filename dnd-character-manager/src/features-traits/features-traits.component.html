@@ -1,9 +1,11 @@
-<div class="features-traits">
-  <textarea
-    rows="23"
-    pInputTextarea
-    [(ngModel)] = "featTraits"
-    (change)="saveData(featTraits);"
+<ng-container *transloco="let t">
+  <div class="features-traits">
+    <textarea
+      rows="23"
+      pInputTextarea
+      [(ngModel)]="featTraits"
+      (ngModelChange)="saveData($event)"
     ></textarea>
-  <p>Особенности и свойства</p>
-</div>
+    <p>{{t('featuresTraits')}}</p>
+  </div>
+</ng-container>

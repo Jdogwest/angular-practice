@@ -1,31 +1,32 @@
-<div class="character-description">
-  <textarea
-    rows="4"
-    pInputTextarea
-    [(ngModel)] = "personality"
-    (change)="saveData('personality',personality);"
+<ng-container *transloco="let t">
+  <div class="character-description">
+    <textarea
+      rows="4"
+      pInputTextarea
+      [(ngModel)]="descriptionData.personality"
+      (ngModelChange)="saveData('personality', $event)"
     ></textarea>
-  <p class="character-description__naming">Свойства личности</p>
-  <textarea
-    rows="3"
-    pInputTextarea
-    [(ngModel)] = "ideals"
-    (change)="saveData('ideals',ideals);"
+    <p class="character-description__naming">{{t('personality')}}</p>
+    <textarea
+      rows="3"
+      pInputTextarea
+      [(ngModel)]="descriptionData.ideals"
+      (ngModelChange)="saveData('ideals', $event)"
     ></textarea>
-  <p class="character-description__naming">Идеалы</p>
-  <textarea
-    rows="3"
-    pInputTextarea
-    [(ngModel)] = "bonds"
-    (change)="saveData('bonds',bonds);"
+    <p class="character-description__naming">{{t('ideals')}}</p>
+    <textarea
+      rows="3"
+      pInputTextarea
+      [(ngModel)]="descriptionData.bonds"
+      (ngModelChange)="saveData('bonds', $event)"
     ></textarea>
-  <p class="character-description__naming">Узы</p>
-  <textarea
-    rows="3"
-    pInputTextarea
-    [(ngModel)] = "flaws"
-    (change)="saveData('flaws',flaws);"
+    <p class="character-description__naming">{{t('bonds')}}</p>
+    <textarea
+      rows="3"
+      pInputTextarea
+      [(ngModel)]="descriptionData.flaws"
+      (ngModelChange)="saveData('flaws', $event)"
     ></textarea>
-  <p class="character-description__naming">Изъяны</p>
-</div>
-
+    <p class="character-description__naming">{{t('flaws')}}</p>
+  </div>
+</ng-container>

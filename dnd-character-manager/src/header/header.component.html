@@ -1,34 +1,72 @@
-<div class="header grid">
-  <div class="character-name lg:col-3 md:col-4 sm:col-12">
-    <input type="text" class="character-name__value" pInputText [(ngModel)]="characterName" (change)="saveData('characterName', characterName)"/>
-    <p>Имя персонажа</p>
-  </div>
-  <div class="lg:col-9 md:col-8 sm:col-12">
-    <div class="grid">
-      <div class="lg:col-4 sm:col-6">
-        <input type="text" pInputText [(ngModel)]="classAndLevel" (change)="saveData('classAndLevel', classAndLevel)"/>
-        <p>Класс и уровень</p>
-      </div>
-      <div class="lg:col-4 sm:col-6">
-        <input type="text" pInputText [(ngModel)]="origin" (change)="saveData('origin', origin)"/>
-        <p>Происхождение</p>
-      </div>
-      <div class="lg:col-4 sm:col-6">
-        <input type="text" pInputText [(ngModel)]="playerName" (change)="saveData('playerName', playerName)"/>
-        <p>Имя игрока</p>
-      </div>
-      <div class="lg:col-4 sm:col-6">
-        <input type="text" pInputText [(ngModel)]="species" (change)="saveData('species', species)"/>
-        <p>Раса</p>
-      </div>
-      <div class="lg:col-4 sm:col-6">
-        <input type="text" pInputText [(ngModel)]="worldView" (change)="saveData('worldView', worldView)"/>
-        <p>Мировоззрение</p>
-      </div>
-      <div class="lg:col-4 sm:col-6">
-        <input type="text" pInputText [(ngModel)]="expirience" (change)="saveData('expirience', expirience)"/>
-        <p>Опыт персонажа</p>
+<ng-container *transloco="let t">
+  <div class="header grid">
+    <div class="character-name lg:col-3 md:col-4 sm:col-12">
+      <input
+        type="text"
+        class="character-name__value"
+        pInputText
+        [(ngModel)]="headerData.characterName"
+        (ngModelChange)="saveData('characterName', $event)"
+      />
+      <p>{{t('characterName')}}</p>
+    </div>
+    <div class="lg:col-9 md:col-8 sm:col-12">
+      <div class="grid">
+        <div class="lg:col-4 sm:col-6">
+          <input
+            type="text"
+            pInputText
+            [(ngModel)]="headerData.classAndLevel"
+            (ngModelChange)="saveData('classAndLevel', $event)"
+          />
+          <p>{{t('classAndLevel')}}</p>
+        </div>
+        <div class="lg:col-4 sm:col-6">
+          <input
+            type="text"
+            pInputText
+            [(ngModel)]="headerData.origin"
+            (ngModelChange)="saveData('origin', $event)"
+          />
+          <p>{{t('origin')}}</p>
+        </div>
+        <div class="lg:col-4 sm:col-6">
+          <input
+            type="text"
+            pInputText
+            [(ngModel)]="headerData.playerName"
+            (ngModelChange)="saveData('playerName', $event)"
+          />
+          <p>{{t('playerName')}}</p>
+        </div>
+        <div class="lg:col-4 sm:col-6">
+          <input
+            type="text"
+            pInputText
+            [(ngModel)]="headerData.species"
+            (ngModelChange)="saveData('species', $event)"
+          />
+          <p>{{t('race')}}</p>
+        </div>
+        <div class="lg:col-4 sm:col-6">
+          <input
+            type="text"
+            pInputText
+            [(ngModel)]="headerData.worldView"
+            (ngModelChange)="saveData('worldView', $event)"
+          />
+          <p>{{t('alignment')}}</p>
+        </div>
+        <div class="lg:col-4 sm:col-6">
+          <input
+            type="text"
+            pInputText
+            [(ngModel)]="headerData.expirience"
+            (ngModelChange)="saveData('expirience', $event)"
+          />
+          <p>{{t('expirience')}}</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</ng-container>

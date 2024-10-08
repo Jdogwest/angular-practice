@@ -1,20 +1,48 @@
 <div class="page">
-  <app-header></app-header>
+  <div class="absolute top-0 right-0">
+    <p-button label="RU / ENG" (onClick)="changeLanguage()"/>
+  </div>
+  <app-header
+    [headerData]="headerData"
+    (onSave)="saveData($event)"
+  ></app-header>
   <div class="grid">
-    <app-stats class="lg:col-4 md:col-6"></app-stats>
+    <app-stats
+      class="lg:col-4 md:col-6"
+      [statsData]="statsData"
+      (onSave)="saveData($event)"
+    ></app-stats>
     <div class="lg:col-4 md:col-6">
-      <app-combat-parameters></app-combat-parameters>
-      <app-features-traits></app-features-traits>
+      <app-combat-parameters
+        [combatData]="combatData"
+        (onSave)="saveData($event)"
+      ></app-combat-parameters>
+      <app-features-traits
+        [featTraits]="featTraits"
+        (onSave)="saveData($event)"
+      ></app-features-traits>
     </div>
     <div class="lg:col-4 sm:col-12 grid">
-      <app-description class="lg:col-12 md:col-6 sm:col-12"></app-description>
+      <app-description
+        [descriptionData]="descriptionData"
+        (onSave)="saveData($event)"
+        class="lg:col-12 md:col-6 sm:col-12"
+      ></app-description>
       <app-attacks-spells
+        [attacksSpellsData]="attacksSpellsData"
+        (onSave)="saveData($event)"
         class="lg:col-12 md:col-6 sm:col-12"
       ></app-attacks-spells>
     </div>
     <app-abilities-languages
+      [abilLang]="abilLang"
+      (onSave)="saveData($event)"
       class="lg:col-4 md:col-6 sm:col-12 lg:col-offset-1"
     ></app-abilities-languages>
-    <app-inventory class="lg:col-6 md:col-6 sm:col-12"></app-inventory>
+    <app-inventory
+      [inventoryData]="inventoryData"
+      (onSave)="saveData($event)"
+      class="lg:col-6 md:col-6 sm:col-12"
+    ></app-inventory>
   </div>
 </div>

@@ -1,28 +1,70 @@
-<div class="inventory">
-  <div class="inventory__money">
-    <div>
-      <p>ММ</p>
-      <p-inputNumber inputId="integeronly" maxlength="4" size="1" class="pl-2" [(ngModel)]="copperCoins" (onInput)="saveData('copperCoins', copperCoins)"/>
+<ng-container *transloco="let t">
+  <div class="inventory">
+    <div class="inventory__money">
+      <div>
+        <p>{{t('copperCoins')}}</p>
+        <p-inputNumber
+          inputId="integeronly"
+          maxlength="4"
+          size="1"
+          class="pl-2"
+          [(ngModel)]="inventoryData.copperCoins"
+          (ngModelChange)="saveData('copperCoins', $event)"
+        />
+      </div>
+      <div>
+        <p>{{t('silverCoins')}}</p>
+        <p-inputNumber
+          inputId="integeronly"
+          maxlength="4"
+          size="1"
+          class="pl-2"
+          [(ngModel)]="inventoryData.silverCoins"
+          (ngModelChange)="saveData('silverCoins', $event)"
+        />
+      </div>
+      <div>
+        <p>{{t('eridiumCoins')}}</p>
+        <p-inputNumber
+          inputId="integeronly"
+          maxlength="4"
+          size="1"
+          class="pl-2"
+          [(ngModel)]="inventoryData.electrumCoins"
+          (ngModelChange)="saveData('electrumCoins', $event)"
+        />
+      </div>
+      <div>
+        <p>{{t('goldenCoins')}}</p>
+        <p-inputNumber
+          inputId="integeronly"
+          maxlength="4"
+          size="1"
+          class="pl-2"
+          [(ngModel)]="inventoryData.goldenCoins"
+          (ngModelChange)="saveData('goldenCoins', $event)"
+        />
+      </div>
+      <div>
+        <p>{{t('platinumCoins')}}</p>
+        <p-inputNumber
+          inputId="integeronly"
+          maxlength="4"
+          size="1"
+          class="pl-2"
+          [(ngModel)]="inventoryData.platinumCoins"
+          (ngModelChange)="saveData('platinumCoins', $event)"
+        />
+      </div>
     </div>
-    <div>
-      <p>СМ</p>
-      <p-inputNumber inputId="integeronly" maxlength="4" size="1" class="pl-2" [(ngModel)]="silverCoins" (onInput)="saveData('silverCoins', silverCoins)"/>
-    </div>
-    <div>
-      <p>ЭМ</p>
-      <p-inputNumber inputId="integeronly" maxlength="4" size="1" class="pl-2" [(ngModel)]="electrumCoins" (onInput)="saveData('electrumCoins', electrumCoins)"/>
-    </div>
-    <div>
-      <p>ЗМ</p>
-      <p-inputNumber inputId="integeronly" maxlength="4" size="1" class="pl-2" [(ngModel)]="goldenCoins" (onInput)="saveData('goldenCoins', goldenCoins)"/>
-    </div>
-    <div>
-      <p>ПМ</p>
-      <p-inputNumber inputId="integeronly" maxlength="4" size="1" class="pl-2" [(ngModel)]="platinumCoins" (onInput)="saveData('platinumCoins', platinumCoins); "/>
+    <div class="inventory__items">
+      <textarea
+        rows="13"
+        pInputTextarea
+        [(ngModel)]="inventoryData.otherItems"
+        (ngModelChange)="saveData('otherItems', $event)"
+      ></textarea>
+      <p>{{t('items')}}</p>
     </div>
   </div>
-  <div class="inventory__items">
-    <textarea rows="13" pInputTextarea [(ngModel)]="otherItems" (change)="saveData('otherItems', otherItems)"></textarea>
-    <p>Снаряжение</p>
-  </div>
-</div>
+</ng-container>
