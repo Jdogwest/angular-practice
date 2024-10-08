@@ -2,6 +2,8 @@
   <textarea
     rows="13"
     pInputTextarea
+    [(ngModel)] = "abilLang"
+    (change)="saveData(abilLang);"
     ></textarea>
   <p>Прочие умения и языки</p>
 </div>

@@ -2,22 +2,29 @@
   <textarea
     rows="4"
     pInputTextarea
-    >
-</textarea>
+    [(ngModel)] = "personality"
+    (change)="saveData('personality',personality);"
+    ></textarea>
   <p class="character-description__naming">Свойства личности</p>
   <textarea
     rows="3"
     pInputTextarea
+    [(ngModel)] = "ideals"
+    (change)="saveData('ideals',ideals);"
     ></textarea>
   <p class="character-description__naming">Идеалы</p>
   <textarea
     rows="3"
     pInputTextarea
+    [(ngModel)] = "bonds"
+    (change)="saveData('bonds',bonds);"
     ></textarea>
   <p class="character-description__naming">Узы</p>
   <textarea
     rows="3"
     pInputTextarea
+    [(ngModel)] = "flaws"
+    (change)="saveData('flaws',flaws);"
     ></textarea>
   <p class="character-description__naming">Изъяны</p>
 </div>

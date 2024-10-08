@@ -1,24 +1,26 @@
 <div class="combat-parameters">
   <div class="combat-parameters__three-big-params">
-    <input type="number" pInputText value="18">
+    <input type="number" pInputText value="18" [(ngModel)] = "armorClass" (change)="saveData('armorClass',armorClass);">
     <p>Класс брони</p>
   </div>
   <div class="combat-parameters__three-big-params">
-    <input type="number" pInputText value="5">
+    <input type="number" pInputText value="5" [(ngModel)] = "initiative" (change)="saveData('initiative',initiative);">
     <p>Инициатива</p>
   </div>
   <div class="combat-parameters__three-big-params">
-    <input type="number" pInputText value="30">
+    <input type="number" pInputText value="30" [(ngModel)] = "speed" (change)="saveData('speed',speed);">
     <p>Скорость</p>
   </div>
   <div class="combat-parameters__health-points">
     <div class="combat-parameters__health-points-max">
       <p>Максимум ПЗ</p>
-      <input type="number" pInputText value="80">
+      <input type="number" pInputText value="80" [(ngModel)] = "maxHP" (change)="saveData('maxHP',maxHP);">
     </div>
     <textarea
     rows="3"
     pInputTextarea
+    [(ngModel)] = "currentHP"
+    (change)="saveData('currentHP',currentHP);"
     ></textarea>
     <p>Текущие пункты здоровья</p>
   </div>
@@ -26,28 +28,30 @@
     <textarea
     rows="3"
     pInputTextarea
+    [(ngModel)] = "temporaryHP"
+    (change)="saveData('temporaryHP',temporaryHP);"
     ></textarea>
     <p>Временные пункты здоровья</p>
   </div>
   <div class="combat-parameters__dices-challenges-group dices-challenges-group">
     <div class="dices-challenges-group__dices dices grid">
       <p class="col-5">Всего</p>
-      <input type="text" class="dices__dice-text col-5" pInputText value="12" >
-      <input type="text" class="dices__dice-text col-10" pInputText value="d8" >
+      <input type="text" class="dices__dice-text col-5" pInputText value="12" [(ngModel)] = "totalHD" (change)="saveData('totalHD',totalHD);">
+      <input type="text" class="dices__dice-text col-10" pInputText value="d8" [(ngModel)] = "diceName" (change)="saveData('diceName',diceName);">
       <p>Кости здоровья</p>
     </div>
     <div class="dices-challenges-group__challenges challenges">
       <div class="challenges__inputgroup">
         <p>Успехи</p>
-        <p-checkbox [binary]="true"/>
-        <p-checkbox [binary]="true"/>
-        <p-checkbox [binary]="true"/>
+        <p-checkbox [binary]="true" [(ngModel)]="successFirst" (onChange)="saveData('successFirst',successFirst);"/>
+        <p-checkbox [binary]="true" [(ngModel)]="successSecond" (onChange)="saveData('successSecond',successSecond);"/>
+        <p-checkbox [binary]="true" [(ngModel)]="successThird" (onChange)="saveData('successThird',successThird);"/>
       </div>
       <div class="challenges__inputgroup">
         <p>Провалы</p>
-        <p-checkbox [binary]="true"/>
-        <p-checkbox [binary]="true"/>
-        <p-checkbox [binary]="true"/>
+        <p-checkbox [binary]="true" [(ngModel)]="failureFirst" (onChange)="saveData('failureFirst',failureFirst);"/>
+        <p-checkbox [binary]="true" [(ngModel)]="failureSecond" (onChange)="saveData('failureSecond',failureSecond);"/>
+        <p-checkbox [binary]="true" [(ngModel)]="failureThird" (onChange)="saveData('failureThird',failureThird);"/>
       </div>
       <p>Испыт. против смерти</p>
     </div>

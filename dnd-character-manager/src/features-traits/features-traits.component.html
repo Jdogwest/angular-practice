@@ -2,6 +2,8 @@
   <textarea
     rows="23"
     pInputTextarea
+    [(ngModel)] = "featTraits"
+    (change)="saveData(featTraits);"
     ></textarea>
   <p>Особенности и свойства</p>
 </div>
