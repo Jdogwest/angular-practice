@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextModule } from 'primeng/inputtext';
-import { StorageService } from '../storage.service';
+import { StorageService } from '../app/storage.service';
 import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
@@ -21,11 +21,16 @@ export class StatsComponent {
   wisdomBonus: number = 0;
   charismaBonus: number = 0;
 
-  @Input({ required: true }) statsData!: statsDT;
-  @Output() onSave: EventEmitter<{dataClass: string, dataName: string, dataValue: any}> = new EventEmitter();
+  @Input({ required: true }) storageService!: StorageService;
 
-  saveData(key: string, data: any) {
-    this.onSave.emit({dataClass: 'statsData' ,dataName: key, dataValue: data});
+  statsData!: statsDT;
+
+  ngOnInit (){
+    this.statsData = this.storageService.getData('statsData') as statsDT;
+  }
+
+  saveData(key: string, data: string) {
+    this.storageService.setData(key, data);
   }
 
   setBonus() {

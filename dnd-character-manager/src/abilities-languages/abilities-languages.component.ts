@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import { StorageService } from '../storage.service';
+import { StorageService } from '../app/storage.service';
 import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
@@ -12,10 +12,15 @@ import { TranslocoModule } from '@ngneat/transloco';
   styleUrl: './abilities-languages.component.scss'
 })
 export class AbilitiesLanguagesComponent {
-  @Input({ required: true }) abilLang!: string;
-  @Output() onSave: EventEmitter<{dataClass: string, dataName: string, dataValue: any}> = new EventEmitter();
+  @Input({ required: true }) storageService!: StorageService;
 
-  saveData(data: any) {
-    this.onSave.emit({dataClass: 'abilLang', dataName: '', dataValue: data});
+  abilLang!: string;
+
+  ngOnInit (){
+    this.abilLang = this.storageService.getData('abilLang') as string;
+  }
+
+  saveData(data: string) {
+    this.storageService.setData('abilLang', data);
   }
 }

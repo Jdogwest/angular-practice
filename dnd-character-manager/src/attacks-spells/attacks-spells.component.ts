@@ -4,6 +4,7 @@ import { TranslocoModule } from '@ngneat/transloco';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { TableModule } from 'primeng/table';
+import { StorageService } from '../app/storage.service';
 
 @Component({
   selector: 'app-attacks-spells',
@@ -13,10 +14,15 @@ import { TableModule } from 'primeng/table';
   styleUrl: './attacks-spells.component.scss'
 })
 export class AttacksSpellsComponent {
-  @Input({ required: true }) attacksSpellsData!: attacksSpellsDT;
-  @Output() onSave: EventEmitter<{dataClass: string, dataName: string, dataValue: any}> = new EventEmitter();
+  @Input({ required: true }) storageService!: StorageService;
 
-  saveData(key: string, data: any) {
-    this.onSave.emit({dataClass: 'attacksSpellsData' ,dataName: key, dataValue: data});
+  attacksSpellsData!: attacksSpellsDT;
+
+  ngOnInit (){
+    this.attacksSpellsData = this.storageService.getData('attacksSpellsData') as attacksSpellsDT;
+  }
+
+  saveData(key: string, data: string) {
+    this.storageService.setData(key, data);
   }
 }

@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { StorageService } from './../app/storage.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TranslocoModule } from '@ngneat/transloco';
 import { InputTextModule } from 'primeng/inputtext';
@@ -11,10 +12,16 @@ import { InputTextModule } from 'primeng/inputtext';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  @Input({ required: true }) headerData!: headerDT;
-  @Output() onSave: EventEmitter<{dataClass: string, dataName: string, dataValue: any}> = new EventEmitter();
+  @Input({ required: true }) storageService!: StorageService;
 
-  saveData(key: string, data: any) {
-    this.onSave.emit({dataClass: 'headerData' ,dataName: key, dataValue: data});
+  headerData!: headerDT;
+
+  ngOnInit (){
+    this.headerData = this.storageService.getData('headerData') as headerDT;
+  }
+
+
+  saveData(key: string, data: string) {
+    this.storageService.setData(key, data);
   }
 }

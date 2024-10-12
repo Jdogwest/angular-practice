@@ -2,32 +2,32 @@
   <div class="stats grid">
     <div class="stats__general general-stats">
       <div class="general-stats__wrapper grid justify-content-center">
-        <p>{{t('strength')}}</p>
+        <p class="col-12">{{t('strength')}}</p>
         <input type="number" class="col-9" pInputText [min]="0" [max]="20" [(ngModel)] = "statsData.strength" (ngModelChange)="saveData('strength', $event); setBonus();">
         <input type="text" class="col-6" pInputText [maxLength]="2" [(ngModel)] = "strengthBonus" [readOnly]="true">
       </div>
       <div class="general-stats__wrapper grid justify-content-center">
-        <p>{{t('dextrity')}}</p>
+        <p class="col-12">{{t('dextrity')}}</p>
         <input type="number" class="col-9" pInputText [min]="0" [max]="20" [(ngModel)] = "statsData.dexterity" (ngModelChange)="saveData('dexterity',$event); setBonus();">
         <input type="text" class="col-6" pInputText [maxLength]="2" [(ngModel)] = "dexterityBonus" [readOnly]="true">
       </div>
       <div class="general-stats__wrapper grid justify-content-center">
-        <p>{{t('constitution')}}</p>
+        <p class="col-12">{{t('constitution')}}</p>
         <input type="number" class="col-9" pInputText [min]="0" [max]="20" [(ngModel)] = "statsData.constitution" (ngModelChange)="saveData('constitution',$event); setBonus();">
         <input type="text" class="col-6" pInputText [maxLength]="2" [(ngModel)] = "constitutionBonus" [readOnly]="true">
       </div>
       <div class="general-stats__wrapper grid justify-content-center">
-        <p>{{t('intellegence')}}</p>
+        <p class="col-12">{{t('intellegence')}}</p>
         <input type="number" class="col-9" pInputText [min]="0" [max]="20" [(ngModel)] = "statsData.intelligence" (ngModelChange)="saveData('intelligence',$event); setBonus();">
         <input type="text" class="col-6" pInputText [maxLength]="2" [(ngModel)] = "intelligenceBonus" [readOnly]="true">
       </div>
       <div class="general-stats__wrapper grid justify-content-center">
-        <p>{{t('wisdom')}}</p>
+        <p class="col-12">{{t('wisdom')}}</p>
         <input type="number" class="col-9" pInputText [min]="0" [max]="20" [(ngModel)] = "statsData.wisdom" (ngModelChange)="saveData('wisdom',$event); setBonus();">
         <input type="text" class="col-6" pInputText [maxLength]="2" [(ngModel)] = "wisdomBonus" [readOnly]="true">
       </div>
       <div class="general-stats__wrapper grid justify-content-center">
-        <p>{{t('charisma')}}</p>
+        <p class="col-12">{{t('charisma')}}</p>
         <input type="number" class="col-9" pInputText [min]="0" [max]="20" [(ngModel)] = "statsData.charisma" (ngModelChange)="saveData('charisma',$event); setBonus();">
         <input type="text" class="col-6" pInputText [maxLength]="2" [(ngModel)] = "charismaBonus" [readOnly]="true">
       </div>

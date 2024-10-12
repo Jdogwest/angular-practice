@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import { StorageService } from '../storage.service';
+import { StorageService } from '../app/storage.service';
 import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
@@ -12,10 +12,15 @@ import { TranslocoModule } from '@ngneat/transloco';
   styleUrl: './description.component.scss'
 })
 export class DescriptionComponent {
-  @Input({ required: true }) descriptionData!: descriptionDT;
-  @Output() onSave: EventEmitter<{dataClass: string, dataName: string, dataValue: any}> = new EventEmitter();
+  @Input({ required: true }) storageService!: StorageService;
 
-  saveData(key: string, data: any) {
-    this.onSave.emit({dataClass: 'descriptionData' ,dataName: key, dataValue: data});
+  descriptionData!: descriptionDT;
+
+  ngOnInit (){
+    this.descriptionData = this.storageService.getData('descriptionData') as descriptionDT;
+  }
+
+  saveData(key: string, data: string) {
+    this.storageService.setData(key, data);
   }
 }

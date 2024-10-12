@@ -3,6 +3,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { FormsModule } from '@angular/forms';
 import { TranslocoModule } from '@ngneat/transloco';
+import { StorageService } from '../app/storage.service';
 
 @Component({
   selector: 'app-inventory',
@@ -12,10 +13,15 @@ import { TranslocoModule } from '@ngneat/transloco';
   styleUrl: './inventory.component.scss'
 })
 export class InventoryComponent {
-  @Input({ required: true }) inventoryData!: inventoryDT;
-  @Output() onSave: EventEmitter<{dataClass: string, dataName: string, dataValue: any}> = new EventEmitter();
+  @Input({ required: true }) storageService!: StorageService;
 
-  saveData(key: string, data: any) {
-    this.onSave.emit({dataClass: 'inventoryData' ,dataName: key, dataValue: data});
+  inventoryData!: inventoryDT;
+
+  ngOnInit (){
+    this.inventoryData = this.storageService.getData('inventoryData') as inventoryDT;
+  }
+
+  saveData(key: string, data: string) {
+    this.storageService.setData(key, data);
   }
 }

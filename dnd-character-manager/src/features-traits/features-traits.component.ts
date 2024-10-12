@@ -2,6 +2,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TranslocoModule } from '@ngneat/transloco';
+import { StorageService } from '../app/storage.service';
 
 @Component({
   selector: 'app-features-traits',
@@ -11,10 +12,15 @@ import { TranslocoModule } from '@ngneat/transloco';
   styleUrl: './features-traits.component.scss'
 })
 export class FeaturesTraitsComponent {
-  @Input({ required: true }) featTraits!: string;
-  @Output() onSave: EventEmitter<{dataClass: string, dataName: string, dataValue: any}> = new EventEmitter();
+  @Input({ required: true }) storageService!: StorageService;
 
-  saveData(data: any) {
-    this.onSave.emit({dataClass: 'featTraits', dataName: '', dataValue: data});
+  featTraits!: string;
+
+  ngOnInit (){
+    this.featTraits = this.storageService.getData('featTraits') as string;
+  }
+
+  saveData(data: string) {
+    this.storageService.setData('featTraits', data);
   }
 }

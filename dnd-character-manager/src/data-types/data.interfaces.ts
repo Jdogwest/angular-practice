@@ -8,11 +8,11 @@ interface headerDT {
   expirience: string;
 }
 interface inventoryDT {
-  copperCoins: any;
-  silverCoins: any;
-  electrumCoins: any;
-  goldenCoins: any;
-  platinumCoins: any;
+  copperCoins: number | undefined;
+  silverCoins: number | undefined;
+  electrumCoins: number | undefined;
+  goldenCoins: number | undefined;
+  platinumCoins: number | undefined;
   otherItems: string;
 }
 interface descriptionDT{
@@ -30,12 +30,12 @@ interface combatDT{
   temporaryHP: string;
   totalHD: string;
   diceName: string;
-  successFirst: any;
-  successSecond: any;
-  successThird: any;
-  failureFirst: any;
-  failureSecond: any;
-  failureThird: any;
+  successFirst: boolean;
+  successSecond: boolean;
+  successThird: boolean;
+  failureFirst: boolean;
+  failureSecond: boolean;
+  failureThird: boolean;
 }
 interface attacksSpellsDT{
   firstWeaponName: string;
@@ -50,65 +50,65 @@ interface attacksSpellsDT{
   otherWeaponSpells: string;
 }
 interface statsDT {
-  strength: any;
-  dexterity: any;
-  constitution: any;
-  intelligence: any;
-  wisdom: any;
-  charisma: any;
+  strength: number;
+  dexterity: number;
+  constitution: number;
+  intelligence: number;
+  wisdom: number;
+  charisma: number;
 
-  inspiration: any;
+  inspiration: number;
   profienceBonus: string;
 
-  strengthChalChb: any;
-  dexterityChalChb: any;
-  constitutionChalChb: any;
-  intelligenceChalChb: any;
-  wisdomChalChb: any;
-  charismaChalChb: any;
+  strengthChalChb: boolean;
+  dexterityChalChb: boolean;
+  constitutionChalChb: boolean;
+  intelligenceChalChb: boolean;
+  wisdomChalChb: boolean;
+  charismaChalChb: boolean;
 
-  strengthChalVal: any;
-  dexterityChalVal: any;
-  constitutionChalVal: any;
-  intelligenceChalVal: any;
-  wisdomChalVal: any;
-  charismaChalVal: any;
+  strengthChalVal: number;
+  dexterityChalVal: number;
+  constitutionChalVal: number;
+  intelligenceChalVal: number;
+  wisdomChalVal: number;
+  charismaChalVal: number;
 
-  acrobaticsChb: any;
-  athleticsChb: any;
-  perceptionChb: any;
-  survivalChb: any;
-  handlingChb: any;
-  intimidationChb: any;
-  perfomanceChb: any;
-  historyChb: any;
-  sleightOfHandChb: any;
-  arcanaChb: any;
-  medicineChb: any;
-  deceptionChb: any;
-  natureChb: any;
-  insightChb: any;
-  investigationChb: any;
-  religionChb: any;
-  stealthChb: any;
-  persuasionChb: any;
+  acrobaticsChb: boolean;
+  athleticsChb: boolean;
+  perceptionChb: boolean;
+  survivalChb: boolean;
+  handlingChb: boolean;
+  intimidationChb: boolean;
+  perfomanceChb: boolean;
+  historyChb: boolean;
+  sleightOfHandChb: boolean;
+  arcanaChb: boolean;
+  medicineChb: boolean;
+  deceptionChb: boolean;
+  natureChb: boolean;
+  insightChb: boolean;
+  investigationChb: boolean;
+  religionChb: boolean;
+  stealthChb: boolean;
+  persuasionChb: boolean;
 
-  acrobaticsVal: any;
-  athleticsVal: any;
-  perceptionVal: any;
-  survivalVal: any;
-  handlingVal: any;
-  intimidationVal: any;
-  perfomanceVal: any;
-  historyVal: any;
-  sleightOfHandVal: any;
-  arcanaVal: any;
-  medicineVal: any;
-  deceptionVal: any;
-  natureVal: any;
-  insightVal: any;
-  investigationVal: any;
-  religionVal: any;
-  stealthVal: any;
-  persuasionVal: any;
+  acrobaticsVal: number;
+  athleticsVal: number;
+  perceptionVal: number;
+  survivalVal: number;
+  handlingVal: number;
+  intimidationVal: number;
+  perfomanceVal: number;
+  historyVal: number;
+  sleightOfHandVal: number;
+  arcanaVal: number;
+  medicineVal: number;
+  deceptionVal: number;
+  natureVal: number;
+  insightVal: number;
+  investigationVal: number;
+  religionVal: number;
+  stealthVal: number;
+  persuasionVal: number;
 }
