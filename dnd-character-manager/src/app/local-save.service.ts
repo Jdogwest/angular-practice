@@ -13,7 +13,13 @@ export class LocalSaveService {
   }
 
   getData(dataName: string) {
-    let JSONData: string = localStorage.getItem(dataName) ?? '';
-    return JSON.parse(JSONData);
+    if (localStorage.getItem(dataName)){
+      let JSONData: string = localStorage.getItem(dataName) || '';
+      return JSON.parse(JSONData);
+    } else if (dataName === 'abilLangs' || dataName === 'featTraits'){
+      return '';
+    } else {
+      return {};
+    }
   }
 }
