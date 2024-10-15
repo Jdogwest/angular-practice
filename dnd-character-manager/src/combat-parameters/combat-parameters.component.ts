@@ -16,10 +16,10 @@ import { StorageService } from '../app/storage.service';
 export class CombatParametersComponent {
   @Input({ required: true }) storageService!: StorageService;
 
-  combatData!: combatDT;
+  combatData!: ICombat;
 
   ngOnInit (){
-    this.combatData = this.storageService.getData('combatData') as combatDT;
+    this.combatData = this.storageService.getData('combatData') as ICombat;
   }
 
   saveData(key: string, data: string) {

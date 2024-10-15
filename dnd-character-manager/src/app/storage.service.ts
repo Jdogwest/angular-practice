@@ -7,12 +7,12 @@ import { isNumber, isString } from '@ngneat/transloco';
   providedIn: 'root',
 })
 export class StorageService {
-  private headerData!: headerDT;
-  private inventoryData!: inventoryDT;
-  private descriptionData!: descriptionDT;
-  private combatData!: combatDT;
-  private attacksSpellsData!: attacksSpellsDT;
-  private statsData!: statsDT;
+  private headerData!: IHeader;
+  private inventoryData!: IInventory;
+  private descriptionData!: IDescription;
+  private combatData!: ICombat;
+  private attacksSpellsData!: IAttacksSpells;
+  private statsData!: IStats;
   private abilLangs!: string;
   private featTraits!: string;
   private saveService: LocalSaveService;
@@ -31,27 +31,27 @@ export class StorageService {
 
   setData(dataName: string, data: string | number | boolean){
     if (Object.hasOwn(this.headerData, dataName)){
-      let partialData: Partial<headerDT> = {[dataName] : data};
+      let partialData: Partial<IHeader> = {[dataName] : data};
       this.headerData = Object.assign(this.headerData, partialData);
     }
     else if (Object.hasOwn(this.inventoryData, dataName)){
-      let partialData: Partial<inventoryDT> = {[dataName] : data};
+      let partialData: Partial<IInventory> = {[dataName] : data};
       this.inventoryData = Object.assign(this.inventoryData, partialData);
     }
     else if (Object.hasOwn(this.descriptionData, dataName)){
-      let partialData: Partial<descriptionDT> = {[dataName] : data};
+      let partialData: Partial<IDescription> = {[dataName] : data};
       this.descriptionData = Object.assign(this.descriptionData, partialData);
     }
     else if (Object.hasOwn(this.combatData, dataName)){
-      let partialData: Partial<combatDT> = {[dataName] : data};
+      let partialData: Partial<ICombat> = {[dataName] : data};
       this.combatData = Object.assign(this.combatData, partialData);
     }
     else if (Object.hasOwn(this.attacksSpellsData, dataName)){
-      let partialData: Partial<attacksSpellsDT> = {[dataName] : data};
+      let partialData: Partial<IAttacksSpells> = {[dataName] : data};
       this.attacksSpellsData = Object.assign(this.attacksSpellsData, partialData);
     }
     else if (Object.hasOwn(this.statsData, dataName)){
-      let partialData: Partial<statsDT> = {[dataName] : data};
+      let partialData: Partial<IStats> = {[dataName] : data};
       this.statsData = Object.assign(this.statsData, partialData);
     }
     else if (dataName === 'abilLangs' && isString(data)){

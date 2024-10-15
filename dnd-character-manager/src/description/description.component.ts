@@ -14,10 +14,10 @@ import { TranslocoModule } from '@ngneat/transloco';
 export class DescriptionComponent {
   @Input({ required: true }) storageService!: StorageService;
 
-  descriptionData!: descriptionDT;
+  descriptionData!: IDescription;
 
   ngOnInit (){
-    this.descriptionData = this.storageService.getData('descriptionData') as descriptionDT;
+    this.descriptionData = this.storageService.getData('descriptionData') as IDescription;
   }
 
   saveData(key: string, data: string) {

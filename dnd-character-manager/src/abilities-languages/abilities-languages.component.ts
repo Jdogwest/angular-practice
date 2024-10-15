@@ -21,6 +21,6 @@ export class AbilitiesLanguagesComponent {
   }
 
   saveData(data: string) {
-    this.storageService.setData('abilLang', data);
+    this.storageService.setData('abilLangs', data);
   }
 }

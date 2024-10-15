@@ -16,10 +16,10 @@ import { StorageService } from '../app/storage.service';
 export class AttacksSpellsComponent {
   @Input({ required: true }) storageService!: StorageService;
 
-  attacksSpellsData!: attacksSpellsDT;
+  attacksSpellsData!: IAttacksSpells;
 
   ngOnInit (){
-    this.attacksSpellsData = this.storageService.getData('attacksSpellsData') as attacksSpellsDT;
+    this.attacksSpellsData = this.storageService.getData('attacksSpellsData') as IAttacksSpells;
   }
 
   saveData(key: string, data: string) {

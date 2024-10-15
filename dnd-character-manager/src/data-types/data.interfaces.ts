@@ -1,4 +1,4 @@
-interface headerDT {
+interface IHeader {
   characterName: string;
   classAndLevel: string;
   origin: string;
@@ -7,7 +7,7 @@ interface headerDT {
   worldView: string;
   expirience: string;
 }
-interface inventoryDT {
+interface IInventory {
   copperCoins: number | undefined;
   silverCoins: number | undefined;
   electrumCoins: number | undefined;
@@ -15,13 +15,13 @@ interface inventoryDT {
   platinumCoins: number | undefined;
   otherItems: string;
 }
-interface descriptionDT{
+interface IDescription{
   personality: string;
   ideals: string;
   bonds: string;
   flaws: string;
 }
-interface combatDT{
+interface ICombat{
   armorClass: string;
   initiative: string;
   speed: string;
@@ -37,7 +37,7 @@ interface combatDT{
   failureSecond: boolean;
   failureThird: boolean;
 }
-interface attacksSpellsDT{
+interface IAttacksSpells{
   firstWeaponName: string;
   secondWeaponName: string;
   thirdWeaponName: string;
@@ -49,7 +49,7 @@ interface attacksSpellsDT{
   thirdWeapondamage: string;
   otherWeaponSpells: string;
 }
-interface statsDT {
+interface IStats {
   strength: number;
   dexterity: number;
   constitution: number;

@@ -23,10 +23,10 @@ export class StatsComponent {
 
   @Input({ required: true }) storageService!: StorageService;
 
-  statsData!: statsDT;
+  statsData!: IStats;
 
   ngOnInit (){
-    this.statsData = this.storageService.getData('statsData') as statsDT;
+    this.statsData = this.storageService.getData('statsData') as IStats;
   }
 
   saveData(key: string, data: string) {

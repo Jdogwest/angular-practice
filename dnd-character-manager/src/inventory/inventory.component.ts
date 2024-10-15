@@ -15,10 +15,10 @@ import { StorageService } from '../app/storage.service';
 export class InventoryComponent {
   @Input({ required: true }) storageService!: StorageService;
 
-  inventoryData!: inventoryDT;
+  inventoryData!: IInventory;
 
   ngOnInit (){
-    this.inventoryData = this.storageService.getData('inventoryData') as inventoryDT;
+    this.inventoryData = this.storageService.getData('inventoryData') as IInventory;
   }
 
   saveData(key: string, data: string) {

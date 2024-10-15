@@ -14,10 +14,10 @@ import { InputTextModule } from 'primeng/inputtext';
 export class HeaderComponent {
   @Input({ required: true }) storageService!: StorageService;
 
-  headerData!: headerDT;
+  headerData!: IHeader;
 
   ngOnInit (){
-    this.headerData = this.storageService.getData('headerData') as headerDT;
+    this.headerData = this.storageService.getData('headerData') as IHeader;
   }
 
 
