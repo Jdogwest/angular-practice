@@ -1,10 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { StorageService } from './../app/storage.service';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TranslocoModule } from '@ngneat/transloco';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { TableModule } from 'primeng/table';
-import { StorageService } from '../app/storage.service';
 
 @Component({
   selector: 'app-attacks-spells',
@@ -14,7 +14,7 @@ import { StorageService } from '../app/storage.service';
   styleUrl: './attacks-spells.component.scss'
 })
 export class AttacksSpellsComponent {
-  @Input({ required: true }) storageService!: StorageService;
+  constructor(private readonly storageService: StorageService){}
 
   attacksSpellsData!: IAttacksSpells;
 

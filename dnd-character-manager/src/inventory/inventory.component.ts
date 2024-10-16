@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { FormsModule } from '@angular/forms';
@@ -13,7 +13,7 @@ import { StorageService } from '../app/storage.service';
   styleUrl: './inventory.component.scss'
 })
 export class InventoryComponent {
-  @Input({ required: true }) storageService!: StorageService;
+  constructor(private readonly storageService: StorageService){}
 
   inventoryData!: IInventory;
 

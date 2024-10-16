@@ -1,8 +1,7 @@
-import { TranslocoLoader, TranslocoService } from '@ngneat/transloco';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from '../header/header.component';
 import { CommonModule } from '@angular/common';
+import { HeaderComponent } from '../header/header.component';
 import { StatsComponent } from '../stats/stats.component';
 import { CombatParametersComponent } from "../combat-parameters/combat-parameters.component";
 import { DescriptionComponent } from "../description/description.component";
@@ -12,6 +11,7 @@ import { InventoryComponent } from '../inventory/inventory.component';
 import { FeaturesTraitsComponent } from '../features-traits/features-traits.component';
 import { StorageService } from './storage.service';
 import { ButtonModule } from 'primeng/button';
+import { TranslocoService } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-root',
@@ -21,11 +21,9 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  constructor(public translateServise: TranslocoService, public storageService: StorageService = new StorageService()){}
+  constructor(public translateServise: TranslocoService, public storageService: StorageService){}
 
   currentLang: string = 'ru';
-
-
 
   changeLanguage(){
     if (this.currentLang === 'ru'){
@@ -35,6 +33,5 @@ export class AppComponent {
       this.translateServise.setActiveLang('ru');
       this.currentLang = 'ru';
     }
-
   }
 }

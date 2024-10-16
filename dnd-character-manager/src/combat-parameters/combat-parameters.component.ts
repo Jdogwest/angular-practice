@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TranslocoModule } from '@ngneat/transloco';
 import { CheckboxModule } from 'primeng/checkbox';
@@ -14,7 +14,7 @@ import { StorageService } from '../app/storage.service';
   styleUrl: './combat-parameters.component.scss'
 })
 export class CombatParametersComponent {
-  @Input({ required: true }) storageService!: StorageService;
+  constructor(private readonly storageService: StorageService){}
 
   combatData!: ICombat;
 

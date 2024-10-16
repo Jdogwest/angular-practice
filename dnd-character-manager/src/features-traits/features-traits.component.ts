@@ -1,5 +1,5 @@
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TranslocoModule } from '@ngneat/transloco';
 import { StorageService } from '../app/storage.service';
@@ -12,7 +12,7 @@ import { StorageService } from '../app/storage.service';
   styleUrl: './features-traits.component.scss'
 })
 export class FeaturesTraitsComponent {
-  @Input({ required: true }) storageService!: StorageService;
+  constructor(private readonly storageService: StorageService){}
 
   featTraits!: string;
 

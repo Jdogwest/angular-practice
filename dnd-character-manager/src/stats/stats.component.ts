@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputNumberModule } from 'primeng/inputnumber';
@@ -21,7 +21,7 @@ export class StatsComponent {
   wisdomBonus: number = 0;
   charismaBonus: number = 0;
 
-  @Input({ required: true }) storageService!: StorageService;
+  constructor(private readonly storageService: StorageService){}
 
   statsData!: IStats;
 

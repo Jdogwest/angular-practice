@@ -1,114 +1,113 @@
 interface IHeader {
   characterName: string;
   classAndLevel: string;
+  expirience: string;
   origin: string;
   playerName: string;
   species: string;
   worldView: string;
-  expirience: string;
 }
 interface IInventory {
   copperCoins: number | undefined;
-  silverCoins: number | undefined;
   electrumCoins: number | undefined;
   goldenCoins: number | undefined;
-  platinumCoins: number | undefined;
   otherItems: string;
+  platinumCoins: number | undefined;
+  silverCoins: number | undefined;
 }
 interface IDescription{
-  personality: string;
-  ideals: string;
   bonds: string;
   flaws: string;
+  ideals: string;
+  personality: string;
 }
 interface ICombat{
   armorClass: string;
-  initiative: string;
-  speed: string;
-  maxHP: string;
   currentHP: string;
-  temporaryHP: string;
-  totalHD: string;
   diceName: string;
-  successFirst: boolean;
-  successSecond: boolean;
-  successThird: boolean;
   failureFirst: boolean;
   failureSecond: boolean;
   failureThird: boolean;
+  initiative: string;
+  maxHP: string;
+  speed: string;
+  successFirst: boolean;
+  successSecond: boolean;
+  successThird: boolean;
+  temporaryHP: string;
+  totalHD: string;
 }
 interface IAttacksSpells{
-  firstWeaponName: string;
-  secondWeaponName: string;
-  thirdWeaponName: string;
   firstWeaponBonus: string;
-  secondWeaponBonus: string;
-  thirdWeaponBonus: string;
   firstWeaponDamage: string;
-  secondWeaponDamage: string;
-  thirdWeapondamage: string;
+  firstWeaponName: string;
   otherWeaponSpells: string;
+  secondWeaponBonus: string;
+  secondWeaponDamage: string;
+  secondWeaponName: string;
+  thirdWeaponBonus: string;
+  thirdWeapondamage: string;
+  thirdWeaponName: string;
 }
 interface IStats {
-  strength: number;
-  dexterity: number;
-  constitution: number;
-  intelligence: number;
-  wisdom: number;
   charisma: number;
-
+  constitution: number;
+  dexterity: number;
   inspiration: number;
+  intelligence: number;
   profienceBonus: string;
+  strength: number;
+  wisdom: number;
 
-  strengthChalChb: boolean;
-  dexterityChalChb: boolean;
-  constitutionChalChb: boolean;
-  intelligenceChalChb: boolean;
-  wisdomChalChb: boolean;
   charismaChalChb: boolean;
+  constitutionChalChb: boolean;
+  dexterityChalChb: boolean;
+  intelligenceChalChb: boolean;
+  strengthChalChb: boolean;
+  wisdomChalChb: boolean;
 
-  strengthChalVal: number;
-  dexterityChalVal: number;
-  constitutionChalVal: number;
-  intelligenceChalVal: number;
-  wisdomChalVal: number;
   charismaChalVal: number;
+  constitutionChalVal: number;
+  dexterityChalVal: number;
+  intelligenceChalVal: number;
+  strengthChalVal: number;
+  wisdomChalVal: number;
 
   acrobaticsChb: boolean;
-  athleticsChb: boolean;
-  perceptionChb: boolean;
-  survivalChb: boolean;
-  handlingChb: boolean;
-  intimidationChb: boolean;
-  perfomanceChb: boolean;
-  historyChb: boolean;
-  sleightOfHandChb: boolean;
   arcanaChb: boolean;
-  medicineChb: boolean;
+  athleticsChb: boolean;
   deceptionChb: boolean;
-  natureChb: boolean;
+  handlingChb: boolean;
+  historyChb: boolean;
   insightChb: boolean;
+  intimidationChb: boolean;
   investigationChb: boolean;
-  religionChb: boolean;
-  stealthChb: boolean;
+  medicineChb: boolean;
+  natureChb: boolean;
+  perceptionChb: boolean;
+  perfomanceChb: boolean;
   persuasionChb: boolean;
+  religionChb: boolean;
+  sleightOfHandChb: boolean;
+  stealthChb: boolean;
+  survivalChb: boolean;
 
   acrobaticsVal: number;
-  athleticsVal: number;
-  perceptionVal: number;
-  survivalVal: number;
-  handlingVal: number;
-  intimidationVal: number;
-  perfomanceVal: number;
-  historyVal: number;
-  sleightOfHandVal: number;
   arcanaVal: number;
-  medicineVal: number;
+  athleticsVal: number;
   deceptionVal: number;
-  natureVal: number;
+  handlingVal: number;
+  historyVal: number;
   insightVal: number;
+  intimidationVal: number;
   investigationVal: number;
-  religionVal: number;
-  stealthVal: number;
+  medicineVal: number;
+  natureVal: number;
+  perceptionVal: number;
+  perfomanceVal: number;
   persuasionVal: number;
+  religionVal: number;
+  sleightOfHandVal: number;
+  stealthVal: number;
+  survivalVal: number;
 }
