@@ -14,10 +14,10 @@ import { TranslocoModule } from '@ngneat/transloco';
 export class AbilitiesLanguagesComponent {
   constructor(private readonly storageService: StorageService){}
 
-  abilLang!: string;
+  abilLang: string = '';
 
   ngOnInit (){
-    this.abilLang = this.storageService.getData('abilLang') as string;
+    this.abilLang = this.storageService.getData('abilLang');
   }
 
   saveData(data: string) {

@@ -5,6 +5,7 @@ import { TranslocoModule } from '@ngneat/transloco';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { TableModule } from 'primeng/table';
+import { DAttackSpells } from '../data-types/data.defaultValues';
 
 @Component({
   selector: 'app-attacks-spells',
@@ -16,10 +17,10 @@ import { TableModule } from 'primeng/table';
 export class AttacksSpellsComponent {
   constructor(private readonly storageService: StorageService){}
 
-  attacksSpellsData!: IAttacksSpells;
+  attacksSpellsData: IAttacksSpells = DAttackSpells;
 
   ngOnInit (){
-    this.attacksSpellsData = this.storageService.getData('attacksSpellsData') as IAttacksSpells;
+    this.attacksSpellsData = this.storageService.getData<IAttacksSpells>('attacksSpellsData');
   }
 
   saveData(key: string, data: string) {

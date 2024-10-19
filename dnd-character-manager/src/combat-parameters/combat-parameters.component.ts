@@ -5,6 +5,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { StorageService } from '../app/storage.service';
+import { DCombat } from '../data-types/data.defaultValues';
 
 @Component({
   selector: 'app-combat-parameters',
@@ -16,10 +17,10 @@ import { StorageService } from '../app/storage.service';
 export class CombatParametersComponent {
   constructor(private readonly storageService: StorageService){}
 
-  combatData!: ICombat;
+  combatData: ICombat = DCombat;
 
   ngOnInit (){
-    this.combatData = this.storageService.getData('combatData') as ICombat;
+    this.combatData = this.storageService.getData<ICombat>('combatData');
   }
 
   saveData(key: string, data: string) {

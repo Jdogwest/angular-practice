@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TranslocoModule } from '@ngneat/transloco';
 import { InputTextModule } from 'primeng/inputtext';
+import { DHeader } from '../data-types/data.defaultValues';
 
 @Component({
   selector: 'app-header',
@@ -14,10 +15,10 @@ import { InputTextModule } from 'primeng/inputtext';
 export class HeaderComponent {
   constructor(private readonly storageService: StorageService){}
 
-  headerData!: IHeader;
+  headerData: IHeader = DHeader;
 
   ngOnInit (){
-    this.headerData = this.storageService.getData('headerData') as IHeader;
+    this.headerData = this.storageService.getData<IHeader>('headerData');
   }
 
 

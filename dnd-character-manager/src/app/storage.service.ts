@@ -1,9 +1,12 @@
 import { Inject, Injectable } from '@angular/core';
 import '../data-types/data.interfaces'
+import { DHeader, DInventory, DDescription, DCombat, DAttackSpells, DStats } from '../data-types/data.defaultValues';
 import { LocalSaveService } from './local-save.service';
-import { isNumber, isString } from '@ngneat/transloco';
+import { isString } from '@ngneat/transloco';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class StorageService {
   private headerData: IHeader;
   private inventoryData: IInventory;
@@ -15,21 +18,16 @@ export class StorageService {
   private featTraits: string;
   private saveService: LocalSaveService;
 
-  private prefix: string;
-
-  constructor(@Inject('PREFIX') prefix: string) {
+  constructor() {
     this.saveService = new LocalSaveService();
-    this.headerData = this.saveService.getData('headerData', {} as IHeader); // TODO: change 'as class' to smt better
-    this.inventoryData = this.saveService.getData('inventoryData', {} as IInventory);
-    this.descriptionData = this.saveService.getData('descriptionData', {} as IDescription);
-    this.combatData = this.saveService.getData('combatData', {} as ICombat);
-    this.attacksSpellsData = this.saveService.getData('attacksSpellsData', {} as IAttacksSpells);
-    this.statsData = this.saveService.getData('statsData', {} as IStats);
-    this.abilLangs = this.saveService.getData('abilLangs', '');
-    this.featTraits = this.saveService.getData('featTraits', '');
-
-    this.prefix = prefix;
-    console.log(this.prefix);
+    this.headerData = this.saveService.getData('headerData', DHeader);
+    this.inventoryData = this.saveService.getData('inventoryData', DInventory);
+    this.descriptionData = this.saveService.getData('descriptionData', DDescription);
+    this.combatData = this.saveService.getData('combatData', DCombat);
+    this.attacksSpellsData = this.saveService.getData('attacksSpellsData', DAttackSpells);
+    this.statsData = this.saveService.getData('statsData', DStats);
+    this.abilLangs = this.saveService.getData<string>('abilLangs', '');
+    this.featTraits = this.saveService.getData<string>('featTraits', '');
   }
 
   setData(dataName: string, data: string | number | boolean){
@@ -66,7 +64,7 @@ export class StorageService {
     this.saveAllData();
   }
 
-  saveAllData() {
+  private saveAllData() {
     this.saveService.setData('headerData', this.headerData);
     this.saveService.setData('inventoryData', this.inventoryData);
     this.saveService.setData('descriptionData', this.descriptionData);
@@ -78,25 +76,28 @@ export class StorageService {
 
   }
 
-  getData(dataName: string){ // TODO: change to switch
-    if (dataName === 'headerData'){
-      return this.headerData;
-    } else if (dataName === 'inventoryData'){
-      return this.inventoryData;
-    } else if (dataName === 'descriptionData'){
-      return this.descriptionData;
-    } else if (dataName === 'combatData'){
-      return this.combatData;
-    } else if (dataName === 'attacksSpellsData'){
-      return this.attacksSpellsData;
-    } else if (dataName === 'statsData'){
-      return this.statsData;
-    } else if (dataName === 'abilLangs'){
-      return this.abilLangs;
-    } else if (dataName === 'featTraits'){
-      return this.featTraits;
-    } else {
-      return '';
+  getData(dataName: 'abilLangs' | 'featTraits'): string;
+  getData<T>(dataName: string): T;
+  getData<T>(dataName: 'abilLangs' | 'featTraits' | string){
+    switch (dataName){
+      case 'headerData':
+        return this.headerData;
+      case 'inventoryData':
+        return this.inventoryData;
+      case 'descriptionData':
+        return this.descriptionData;
+      case 'combatData':
+        return this.combatData;
+      case 'attacksSpellsData':
+        return this.attacksSpellsData;
+      case 'statsData':
+        return this.statsData;
+      case 'abilLangs':
+        return this.abilLangs;
+      case 'featTraits':
+        return this.featTraits;
+      default:
+        return {} as T;
     }
   }
 }

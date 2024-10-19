@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { StorageService } from '../app/storage.service';
 import { TranslocoModule } from '@ngneat/transloco';
+import { DDescription } from '../data-types/data.defaultValues';
 
 @Component({
   selector: 'app-description',
@@ -14,10 +15,10 @@ import { TranslocoModule } from '@ngneat/transloco';
 export class DescriptionComponent {
   constructor(private readonly storageService: StorageService){}
 
-  descriptionData!: IDescription;
+  descriptionData: IDescription = DDescription;
 
   ngOnInit (){
-    this.descriptionData = this.storageService.getData('descriptionData') as IDescription;
+    this.descriptionData = this.storageService.getData<IDescription>('descriptionData');
   }
 
   saveData(key: string, data: string) {

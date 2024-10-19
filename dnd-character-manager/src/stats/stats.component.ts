@@ -5,6 +5,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextModule } from 'primeng/inputtext';
 import { StorageService } from '../app/storage.service';
 import { TranslocoModule } from '@ngneat/transloco';
+import { DStats } from '../data-types/data.defaultValues';
 
 @Component({
   selector: 'app-stats',
@@ -23,10 +24,10 @@ export class StatsComponent {
 
   constructor(private readonly storageService: StorageService){}
 
-  statsData!: IStats;
+  statsData: IStats = DStats;
 
   ngOnInit (){
-    this.statsData = this.storageService.getData('statsData') as IStats;
+    this.statsData = this.storageService.getData<IStats>('statsData');
   }
 
   saveData(key: string, data: string) {

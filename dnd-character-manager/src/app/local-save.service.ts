@@ -32,14 +32,11 @@ export class LocalSaveService {
   }
 
   private checkParse(JSONData: string){
-    let backData = undefined;
-
     try {
-      backData = JSON.parse(JSONData);
+      return JSON.parse(JSONData);
     } catch {
       console.error('Error while trying to parse JSON string.');
+      return undefined;
     }
-
-    return backData;
   }
 }

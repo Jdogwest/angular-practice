@@ -14,10 +14,10 @@ import { StorageService } from '../app/storage.service';
 export class FeaturesTraitsComponent {
   constructor(private readonly storageService: StorageService){}
 
-  featTraits!: string;
+  featTraits: string = '';
 
   ngOnInit (){
-    this.featTraits = this.storageService.getData('featTraits') as string;
+    this.featTraits = this.storageService.getData('featTraits');
   }
 
   saveData(data: string) {

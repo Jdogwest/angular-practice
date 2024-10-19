@@ -4,6 +4,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { FormsModule } from '@angular/forms';
 import { TranslocoModule } from '@ngneat/transloco';
 import { StorageService } from '../app/storage.service';
+import { DInventory } from '../data-types/data.defaultValues';
 
 @Component({
   selector: 'app-inventory',
@@ -15,10 +16,10 @@ import { StorageService } from '../app/storage.service';
 export class InventoryComponent {
   constructor(private readonly storageService: StorageService){}
 
-  inventoryData!: IInventory;
+  inventoryData: IInventory = DInventory;
 
   ngOnInit (){
-    this.inventoryData = this.storageService.getData('inventoryData') as IInventory;
+    this.inventoryData = this.storageService.getData<IInventory>('inventoryData');
   }
 
   saveData(key: string, data: string) {
