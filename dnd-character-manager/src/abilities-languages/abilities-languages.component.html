@@ -1,11 +1,13 @@
 <ng-container *transloco="let t">
+<form [formGroup]="abilLangsForm">
   <div class="abilities-languages">
     <textarea
       rows="13"
       pInputTextarea
-      [(ngModel)]="abilLang"
+      formControlName="abilLangs"
       (ngModelChange)="saveData($event)"
     ></textarea>
     <p>{{t('abillitiesLangs')}}</p>
   </div>
+</form>
 </ng-container>

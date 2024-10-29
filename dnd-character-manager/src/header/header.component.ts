@@ -1,6 +1,6 @@
 import { StorageService } from './../app/storage.service';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TranslocoModule } from '@ngneat/transloco';
 import { InputTextModule } from 'primeng/inputtext';
 import { DHeader } from '../data-types/data.defaultValues';
@@ -8,19 +8,24 @@ import { DHeader } from '../data-types/data.defaultValues';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [InputTextModule, FormsModule, TranslocoModule],
+  imports: [InputTextModule, TranslocoModule, ReactiveFormsModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  constructor(private readonly storageService: StorageService){}
+  headerForm: FormGroup;
 
-  headerData: IHeader = DHeader;
-
-  ngOnInit (){
-    this.headerData = this.storageService.getData<IHeader>('headerData');
-  }
-
+  constructor(private readonly storageService: StorageService){
+    let headerData = this.storageService.getData<IHeader>('headerData');
+    this.headerForm = new FormGroup({
+      'characterName': new FormControl(headerData.characterName),
+      'classAndLevel': new FormControl(headerData.classAndLevel),
+      'expirience': new FormControl(headerData.expirience),
+      'origin': new FormControl(headerData.origin),
+      'playerName': new FormControl(headerData.playerName),
+      'species': new FormControl(headerData.species),
+      'worldView': new FormControl(headerData.worldView),
+  })}
 
   saveData(key: string, data: string) {
     this.storageService.setData(key, data);

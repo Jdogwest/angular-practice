@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { StorageService } from '../app/storage.service';
 import { TranslocoModule } from '@ngneat/transloco';
@@ -7,17 +7,19 @@ import { TranslocoModule } from '@ngneat/transloco';
 @Component({
   selector: 'app-abilities-languages',
   standalone: true,
-  imports: [InputTextareaModule, FormsModule, TranslocoModule],
+  imports: [InputTextareaModule, FormsModule, TranslocoModule, ReactiveFormsModule],
   templateUrl: './abilities-languages.component.html',
   styleUrl: './abilities-languages.component.scss'
 })
 export class AbilitiesLanguagesComponent {
-  constructor(private readonly storageService: StorageService){}
+  abilLangsForm: FormGroup;
 
-  abilLang: string = '';
+  constructor(private readonly storageService: StorageService){
+    let abilLang = this.storageService.getData('abilLangs');
 
-  ngOnInit (){
-    this.abilLang = this.storageService.getData('abilLang');
+    this.abilLangsForm = new FormGroup({
+      'abilLangs': new FormControl(abilLang)
+    })
   }
 
   saveData(data: string) {

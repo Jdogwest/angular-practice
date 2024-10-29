@@ -12,11 +12,12 @@ import { FeaturesTraitsComponent } from '../features-traits/features-traits.comp
 import { StorageService } from './storage.service';
 import { ButtonModule } from 'primeng/button';
 import { TranslocoService } from '@ngneat/transloco';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, StatsComponent, CommonModule, CombatParametersComponent, AttacksSpellsComponent, DescriptionComponent, InventoryComponent, FeaturesTraitsComponent,AbilitiesLanguagesComponent, ButtonModule],
+  imports: [RouterOutlet, HeaderComponent, StatsComponent, CommonModule, CombatParametersComponent, AttacksSpellsComponent, DescriptionComponent, InventoryComponent, FeaturesTraitsComponent,AbilitiesLanguagesComponent, ButtonModule, ReactiveFormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

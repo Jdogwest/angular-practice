@@ -1,32 +1,34 @@
 <ng-container *transloco="let t">
-  <div class="character-description">
-    <textarea
-      rows="4"
-      pInputTextarea
-      [(ngModel)]="descriptionData.personality"
-      (ngModelChange)="saveData('personality', $event)"
-    ></textarea>
-    <p class="character-description__naming">{{t('personality')}}</p>
-    <textarea
-      rows="3"
-      pInputTextarea
-      [(ngModel)]="descriptionData.ideals"
-      (ngModelChange)="saveData('ideals', $event)"
-    ></textarea>
-    <p class="character-description__naming">{{t('ideals')}}</p>
-    <textarea
-      rows="3"
-      pInputTextarea
-      [(ngModel)]="descriptionData.bonds"
-      (ngModelChange)="saveData('bonds', $event)"
-    ></textarea>
-    <p class="character-description__naming">{{t('bonds')}}</p>
-    <textarea
-      rows="3"
-      pInputTextarea
-      [(ngModel)]="descriptionData.flaws"
-      (ngModelChange)="saveData('flaws', $event)"
-    ></textarea>
-    <p class="character-description__naming">{{t('flaws')}}</p>
-  </div>
+  <form [formGroup]="descriptionForm">
+    <div class="character-description">
+      <textarea
+        rows="4"
+        pInputTextarea
+        formControlName="personality"
+        (ngModelChange)="saveData('personality', $event)"
+      ></textarea>
+      <p class="character-description__naming">{{t('personality')}}</p>
+      <textarea
+        rows="3"
+        pInputTextarea
+        formControlName="ideals"
+        (ngModelChange)="saveData('ideals', $event)"
+      ></textarea>
+      <p class="character-description__naming">{{t('ideals')}}</p>
+      <textarea
+        rows="3"
+        pInputTextarea
+        formControlName="bonds"
+        (ngModelChange)="saveData('bonds', $event)"
+      ></textarea>
+      <p class="character-description__naming">{{t('bonds')}}</p>
+      <textarea
+        rows="3"
+        pInputTextarea
+        formControlName="flaws"
+        (ngModelChange)="saveData('flaws', $event)"
+      ></textarea>
+      <p class="character-description__naming">{{t('flaws')}}</p>
+    </div>
+  </form>
 </ng-container>

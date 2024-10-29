@@ -1,72 +1,80 @@
 <ng-container *transloco="let t">
-  <div class="header grid">
-    <div class="character-name lg:col-3 md:col-4 sm:col-12">
-      <input
-        type="text"
-        class="character-name__value"
-        pInputText
-        [(ngModel)]="headerData.characterName"
-        (ngModelChange)="saveData('characterName', $event)"
-      />
-      <p>{{t('characterName')}}</p>
-    </div>
-    <div class="lg:col-9 md:col-8 sm:col-12">
-      <div class="grid">
-        <div class="lg:col-4 sm:col-6">
-          <input
-            type="text"
-            pInputText
-            [(ngModel)]="headerData.classAndLevel"
-            (ngModelChange)="saveData('classAndLevel', $event)"
-          />
-          <p>{{t('classAndLevel')}}</p>
-        </div>
-        <div class="lg:col-4 sm:col-6">
-          <input
-            type="text"
-            pInputText
-            [(ngModel)]="headerData.origin"
-            (ngModelChange)="saveData('origin', $event)"
-          />
-          <p>{{t('origin')}}</p>
-        </div>
-        <div class="lg:col-4 sm:col-6">
-          <input
-            type="text"
-            pInputText
-            [(ngModel)]="headerData.playerName"
-            (ngModelChange)="saveData('playerName', $event)"
-          />
-          <p>{{t('playerName')}}</p>
-        </div>
-        <div class="lg:col-4 sm:col-6">
-          <input
-            type="text"
-            pInputText
-            [(ngModel)]="headerData.species"
-            (ngModelChange)="saveData('species', $event)"
-          />
-          <p>{{t('race')}}</p>
-        </div>
-        <div class="lg:col-4 sm:col-6">
-          <input
-            type="text"
-            pInputText
-            [(ngModel)]="headerData.worldView"
-            (ngModelChange)="saveData('worldView', $event)"
-          />
-          <p>{{t('alignment')}}</p>
-        </div>
-        <div class="lg:col-4 sm:col-6">
-          <input
-            type="text"
-            pInputText
-            [(ngModel)]="headerData.expirience"
-            (ngModelChange)="saveData('expirience', $event)"
-          />
-          <p>{{t('expirience')}}</p>
+  <form [formGroup]="headerForm">
+    <div class="header grid">
+      <div class="character-name lg:col-3 md:col-4 sm:col-12 form-group">
+        <input
+          type="text"
+          class="character-name__value form-control"
+          pInputText
+          formControlName="characterName"
+          (ngModelChange)="saveData('characterName', $event)"
+        />
+        <p>{{ t("characterName") }}</p>
+      </div>
+      <div class="lg:col-9 md:col-8 sm:col-12">
+        <div class="grid">
+          <div class="lg:col-4 sm:col-6 form-group">
+            <input
+              type="text"
+              class="form-control"
+              pInputText
+              formControlName="classAndLevel"
+              (ngModelChange)="saveData('classAndLevel', $event)"
+            />
+            <p>{{ t("classAndLevel") }}</p>
+          </div>
+          <div class="lg:col-4 sm:col-6 form-group">
+            <input
+              type="text"
+              class="form-control"
+              pInputText
+              formControlName="origin"
+              (ngModelChange)="saveData('origin', $event)"
+            />
+            <p>{{ t("origin") }}</p>
+          </div>
+          <div class="lg:col-4 sm:col-6 form-group">
+            <input
+              type="text"
+              class="form-control"
+              pInputText
+              formControlName="playerName"
+              (ngModelChange)="saveData('playerName', $event)"
+            />
+            <p>{{ t("playerName") }}</p>
+          </div>
+          <div class="lg:col-4 sm:col-6 form-group">
+            <input
+              type="text"
+              class="form-control"
+              pInputText
+              formControlName="species"
+              (ngModelChange)="saveData('species', $event)"
+            />
+            <p>{{ t("race") }}</p>
+          </div>
+          <div class="lg:col-4 sm:col-6 form-group">
+            <input
+              type="text"
+              class="form-control"
+              pInputText
+              formControlName="worldView"
+              (ngModelChange)="saveData('worldView', $event)"
+            />
+            <p>{{ t("alignment") }}</p>
+          </div>
+          <div class="lg:col-4 sm:col-6 form-group">
+            <input
+              type="text"
+              class="form-control"
+              pInputText
+              formControlName="expirience"
+              (ngModelChange)="saveData('expirience', $event)"
+            />
+            <p>{{ t("expirience") }}</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </form>
 </ng-container>

@@ -8,12 +8,12 @@ interface IHeader {
   worldView: string;
 }
 interface IInventory {
-  copperCoins: number | undefined;
-  electrumCoins: number | undefined;
-  goldenCoins: number | undefined;
+  copperCoins: number;
+  electrumCoins: number;
+  goldenCoins: number;
   otherItems: string;
-  platinumCoins: number | undefined;
-  silverCoins: number | undefined;
+  platinumCoins: number;
+  silverCoins: number;
 }
 interface IDescription{
   bonds: string;

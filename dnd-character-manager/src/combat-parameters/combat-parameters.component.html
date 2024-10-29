@@ -1,125 +1,121 @@
 <ng-container *transloco="let t">
-  <div class="combat-parameters">
-    <div class="combat-parameters__three-big-params">
-      <input
-        type="number"
-        pInputText
-        value="18"
-        [(ngModel)]="combatData.armorClass"
-        (ngModelChange)="saveData('armorClass', $event)"
-      />
-      <p>{{t('armorClass')}}</p>
-    </div>
-    <div class="combat-parameters__three-big-params">
-      <input
-        type="number"
-        pInputText
-        value="5"
-        [(ngModel)]="combatData.initiative"
-        (ngModelChange)="saveData('initiative', $event)"
-      />
-      <p>{{t('initiative')}}</p>
-    </div>
-    <div class="combat-parameters__three-big-params">
-      <input
-        type="number"
-        pInputText
-        value="30"
-        [(ngModel)]="combatData.speed"
-        (ngModelChange)="saveData('speed', $event)"
-      />
-      <p>{{t('speed')}}</p>
-    </div>
-    <div class="combat-parameters__health-points">
-      <div class="combat-parameters__health-points-max">
-        <p>{{t('maxHP')}}</p>
+  <form [formGroup]="combatParametersForm">
+    <div class="combat-parameters">
+      <div class="combat-parameters__three-big-params">
         <input
           type="number"
           pInputText
-          value="80"
-          [(ngModel)]="combatData.maxHP"
-          (ngModelChange)="saveData('maxHP', $event)"
+          formControlName="armorClass"
+          (ngModelChange)="saveData('armorClass', $event)"
         />
+        <p>{{ t("armorClass") }}</p>
       </div>
-      <textarea
-        rows="3"
-        pInputTextarea
-        [(ngModel)]="combatData.currentHP"
-        (ngModelChange)="saveData('currentHP', $event)"
-      ></textarea>
-      <p>{{t('currentHP')}}</p>
-    </div>
-    <div class="combat-parameters__health-points">
-      <textarea
-        rows="3"
-        pInputTextarea
-        [(ngModel)]="combatData.temporaryHP"
-        (ngModelChange)="saveData('temporaryHP', $event)"
-      ></textarea>
-      <p>{{t('temporaryHP')}}</p>
-    </div>
-    <div
-      class="combat-parameters__dices-challenges-group dices-challenges-group"
-    >
-      <div class="dices-challenges-group__dices dices grid">
-        <p class="col-5">{{t('totalHD')}}</p>
+      <div class="combat-parameters__three-big-params">
         <input
-          type="text"
-          class="dices__dice-text col-5"
+          type="number"
           pInputText
-          value="12"
-          [(ngModel)]="combatData.totalHD"
-          (ngModelChange)="saveData('totalHD', $event)"
+          formControlName="initiative"
+          (ngModelChange)="saveData('initiative', $event)"
         />
-        <input
-          type="text"
-          class="dices__dice-text col-10"
-          pInputText
-          value="d8"
-          [(ngModel)]="combatData.diceName"
-          (ngModelChange)="saveData('diceName', $event)"
-        />
-        <p>{{t('hitDice')}}</p>
+        <p>{{ t("initiative") }}</p>
       </div>
-      <div class="dices-challenges-group__challenges challenges">
-        <div class="challenges__inputgroup">
-          <p>{{t('success')}}</p>
-          <p-checkbox
-            [binary]="true"
-            [(ngModel)]="combatData.successFirst"
-            (ngModelChange)="saveData('successFirst', $event)"
-          />
-          <p-checkbox
-            [binary]="true"
-            [(ngModel)]="combatData.successSecond"
-            (ngModelChange)="saveData('successSecond', $event)"
-          />
-          <p-checkbox
-            [binary]="true"
-            [(ngModel)]="combatData.successThird"
-            (ngModelChange)="saveData('successThird', $event)"
+      <div class="combat-parameters__three-big-params">
+        <input
+          type="number"
+          pInputText
+          formControlName="speed"
+          (ngModelChange)="saveData('speed', $event)"
+        />
+        <p>{{ t("speed") }}</p>
+      </div>
+      <div class="combat-parameters__health-points">
+        <div class="combat-parameters__health-points-max">
+          <p>{{ t("maxHP") }}</p>
+          <input
+            type="number"
+            pInputText
+            formControlName="maxHP"
+            (ngModelChange)="saveData('maxHP', $event)"
           />
         </div>
-        <div class="challenges__inputgroup">
-          <p>{{t('failures')}}</p>
-          <p-checkbox
-            [binary]="true"
-            [(ngModel)]="combatData.failureFirst"
-            (ngModelChange)="saveData('failureFirst', $event)"
+        <textarea
+          rows="3"
+          pInputTextarea
+          formControlName="currentHP"
+          (ngModelChange)="saveData('currentHP', $event)"
+        ></textarea>
+        <p>{{ t("currentHP") }}</p>
+      </div>
+      <div class="combat-parameters__health-points">
+        <textarea
+          rows="3"
+          pInputTextarea
+          formControlName="temporaryHP"
+          (ngModelChange)="saveData('temporaryHP', $event)"
+        ></textarea>
+        <p>{{ t("temporaryHP") }}</p>
+      </div>
+      <div
+        class="combat-parameters__dices-challenges-group dices-challenges-group"
+      >
+        <div class="dices-challenges-group__dices dices grid">
+          <p class="col-5">{{ t("totalHD") }}</p>
+          <input
+            type="text"
+            class="dices__dice-text col-5"
+            pInputText
+            formControlName="totalHD"
+            (ngModelChange)="saveData('totalHD', $event)"
           />
-          <p-checkbox
-            [binary]="true"
-            [(ngModel)]="combatData.failureSecond"
-            (ngModelChange)="saveData('failureSecond', $event)"
+          <input
+            type="text"
+            class="dices__dice-text col-10"
+            pInputText
+            formControlName="diceName"
+            (ngModelChange)="saveData('diceName', $event)"
           />
-          <p-checkbox
-            [binary]="true"
-            [(ngModel)]="combatData.failureThird"
-            (ngModelChange)="saveData('failureThird', $event)"
-          />
+          <p>{{ t("hitDice") }}</p>
         </div>
-        <p>{{t('challengesDeath')}}</p>
+        <div class="dices-challenges-group__challenges challenges">
+          <div class="challenges__inputgroup">
+            <p>{{ t("success") }}</p>
+            <p-checkbox
+              [binary]="true"
+              formControlName="successFirst"
+              (ngModelChange)="saveData('successFirst', $event)"
+            />
+            <p-checkbox
+              [binary]="true"
+              formControlName="successSecond"
+              (ngModelChange)="saveData('successSecond', $event)"
+            />
+            <p-checkbox
+              [binary]="true"
+              formControlName="successThird"
+              (ngModelChange)="saveData('successThird', $event)"
+            />
+          </div>
+          <div class="challenges__inputgroup">
+            <p>{{ t("failures") }}</p>
+            <p-checkbox
+              [binary]="true"
+              formControlName="failureFirst"
+              (ngModelChange)="saveData('failureFirst', $event)"
+            />
+            <p-checkbox
+              [binary]="true"
+              formControlName="failureSecond"
+              (ngModelChange)="saveData('failureSecond', $event)"
+            />
+            <p-checkbox
+              [binary]="true"
+              formControlName="failureThird"
+              (ngModelChange)="saveData('failureThird', $event)"
+            />
+          </div>
+          <p>{{ t("challengesDeath") }}</p>
+        </div>
       </div>
     </div>
-  </div>
+  </form>
 </ng-container>

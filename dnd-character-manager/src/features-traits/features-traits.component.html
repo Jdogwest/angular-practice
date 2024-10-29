@@ -1,11 +1,13 @@
 <ng-container *transloco="let t">
-  <div class="features-traits">
-    <textarea
-      rows="23"
-      pInputTextarea
-      [(ngModel)]="featTraits"
-      (ngModelChange)="saveData($event)"
-    ></textarea>
-    <p>{{t('featuresTraits')}}</p>
-  </div>
+  <form [formGroup]="featuresTraitsForm">
+    <div class="features-traits">
+      <textarea
+        rows="23"
+        pInputTextarea
+        formControlName="featTraits"
+        (ngModelChange)="saveData($event)"
+      ></textarea>
+      <p>{{ t("featuresTraits") }}</p>
+    </div>
+  </form>
 </ng-container>
