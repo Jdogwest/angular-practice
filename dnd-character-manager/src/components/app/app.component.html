@@ -1,0 +1,23 @@
+<div class="page">
+  <div class="absolute top-0 right-0">
+    <p-button label="RU / ENG" (onClick)="this.translateService.changeLanguage()" />
+  </div>
+  <app-header></app-header>
+  <div class="grid">
+    <app-stats class="lg:col-4 md:col-6"></app-stats>
+    <div class="lg:col-4 md:col-6">
+      <app-combat-parameters></app-combat-parameters>
+      <app-features-traits></app-features-traits>
+    </div>
+    <div class="lg:col-4 sm:col-12 grid">
+      <app-description class="lg:col-12 md:col-6 sm:col-12"></app-description>
+      <app-attacks-spells
+        class="lg:col-12 md:col-6 sm:col-12"
+      ></app-attacks-spells>
+    </div>
+    <app-abilities-languages
+      class="lg:col-4 md:col-6 sm:col-12 lg:col-offset-1"
+    ></app-abilities-languages>
+    <app-inventory class="lg:col-6 md:col-6 sm:col-12"></app-inventory>
+  </div>
+</div>
