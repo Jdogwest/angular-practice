@@ -5,29 +5,13 @@
         rows="4"
         pInputTextarea
         formControlName="personality"
-        (ngModelChange)="saveData('personality', $event)"
       ></textarea>
       <p class="character-description__naming">{{ t("personality") }}</p>
-      <textarea
-        rows="3"
-        pInputTextarea
-        formControlName="ideals"
-        (ngModelChange)="saveData('ideals', $event)"
-      ></textarea>
+      <textarea rows="3" pInputTextarea formControlName="ideals"></textarea>
       <p class="character-description__naming">{{ t("ideals") }}</p>
-      <textarea
-        rows="3"
-        pInputTextarea
-        formControlName="bonds"
-        (ngModelChange)="saveData('bonds', $event)"
-      ></textarea>
+      <textarea rows="3" pInputTextarea formControlName="bonds"></textarea>
       <p class="character-description__naming">{{ t("bonds") }}</p>
-      <textarea
-        rows="3"
-        pInputTextarea
-        formControlName="flaws"
-        (ngModelChange)="saveData('flaws', $event)"
-      ></textarea>
+      <textarea rows="3" pInputTextarea formControlName="flaws"></textarea>
       <p class="character-description__naming">{{ t("flaws") }}</p>
     </div>
   </div>

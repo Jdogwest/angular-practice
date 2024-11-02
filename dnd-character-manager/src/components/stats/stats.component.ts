@@ -1,20 +1,34 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
+import { TranslocoModule } from '@ngneat/transloco';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextModule } from 'primeng/inputtext';
+import { debounceTime, Subscription } from 'rxjs';
 import { StorageService } from '../../services/storage.service';
-import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-stats',
   standalone: true,
-  imports: [CheckboxModule, InputTextModule, InputNumberModule, FormsModule, TranslocoModule, ReactiveFormsModule],
+  imports: [
+    CheckboxModule,
+    InputTextModule,
+    InputNumberModule,
+    FormsModule,
+    TranslocoModule,
+    ReactiveFormsModule,
+  ],
   templateUrl: './stats.component.html',
   styleUrl: './stats.component.scss',
 })
 export class StatsComponent {
   statsForm: FormGroup;
+  subs: Subscription | undefined;
 
   strengthBonus: number = 0;
   dexterityBonus: number = 0;
@@ -23,7 +37,7 @@ export class StatsComponent {
   wisdomBonus: number = 0;
   charismaBonus: number = 0;
 
-  constructor(private readonly storageService: StorageService){
+  constructor(private readonly storageService: StorageService) {
     let statsData = this.storageService.getData<IStats>('statsData');
 
     this.statsForm = new FormGroup({
@@ -87,56 +101,93 @@ export class StatsComponent {
       sleightOfHandVal: new FormControl(statsData.sleightOfHandVal),
       stealthVal: new FormControl(statsData.stealthVal),
       survivalVal: new FormControl(statsData.survivalVal),
-    })
+    });
 
     this.setBonus();
   }
 
-  saveData(key: string, data: string) {
-    this.storageService.setData(key, data);
+  ngOnInit(): void {
+    this.statsForm.valueChanges.pipe(debounceTime(1000)).subscribe((_) => {
+      this.setBonus();
+      this.storageService.setData('statsData', this.statsForm.getRawValue());
+    });
+  }
+
+  ngOnDestroy() {
+    this.subs?.unsubscribe;
   }
 
   setBonus() {
-    if(this.statsForm.get('strength')?.getRawValue()){
-    if (this.statsForm.get('strength')?.getRawValue() > 10) {
-      this.strengthBonus = Math.floor((this.statsForm.get('strength')?.getRawValue() - 10) / 2);
-    } else {
-      this.strengthBonus = Math.ceil((this.statsForm.get('strength')?.getRawValue() - 10) / 2);
-    }}
+    if (this.statsForm.get('strength')?.getRawValue()) {
+      if (this.statsForm.get('strength')?.getRawValue() > 10) {
+        this.strengthBonus = Math.floor(
+          (this.statsForm.get('strength')?.getRawValue() - 10) / 2
+        );
+      } else {
+        this.strengthBonus = Math.ceil(
+          (this.statsForm.get('strength')?.getRawValue() - 10) / 2
+        );
+      }
+    }
 
     if (this.statsForm.get('dexterity')?.getRawValue()) {
-    if (this.statsForm.get('dexterity')?.getRawValue() > 10) {
-      this.dexterityBonus = Math.floor((this.statsForm.get('dexterity')?.getRawValue() - 10) / 2);
-    } else {
-      this.dexterityBonus = Math.ceil((this.statsForm.get('dexterity')?.getRawValue() - 10) / 2);
-    }}
+      if (this.statsForm.get('dexterity')?.getRawValue() > 10) {
+        this.dexterityBonus = Math.floor(
+          (this.statsForm.get('dexterity')?.getRawValue() - 10) / 2
+        );
+      } else {
+        this.dexterityBonus = Math.ceil(
+          (this.statsForm.get('dexterity')?.getRawValue() - 10) / 2
+        );
+      }
+    }
 
     if (this.statsForm.get('constitution')?.getRawValue()) {
-    if (this.statsForm.get('constitution')?.getRawValue() > 10) {
-      this.constitutionBonus = Math.floor((this.statsForm.get('constitution')?.getRawValue() - 10) / 2);
-    } else {
-      this.constitutionBonus = Math.ceil((this.statsForm.get('constitution')?.getRawValue() - 10) / 2);
-    }}
+      if (this.statsForm.get('constitution')?.getRawValue() > 10) {
+        this.constitutionBonus = Math.floor(
+          (this.statsForm.get('constitution')?.getRawValue() - 10) / 2
+        );
+      } else {
+        this.constitutionBonus = Math.ceil(
+          (this.statsForm.get('constitution')?.getRawValue() - 10) / 2
+        );
+      }
+    }
 
     if (this.statsForm.get('intelligence')?.getRawValue()) {
-    if (this.statsForm.get('intelligence')?.getRawValue() > 10) {
-      this.intelligenceBonus = Math.floor((this.statsForm.get('intelligence')?.getRawValue() - 10) / 2);
-    } else {
-      this.intelligenceBonus = Math.ceil((this.statsForm.get('intelligence')?.getRawValue() - 10) / 2);
-    }}
+      if (this.statsForm.get('intelligence')?.getRawValue() > 10) {
+        this.intelligenceBonus = Math.floor(
+          (this.statsForm.get('intelligence')?.getRawValue() - 10) / 2
+        );
+      } else {
+        this.intelligenceBonus = Math.ceil(
+          (this.statsForm.get('intelligence')?.getRawValue() - 10) / 2
+        );
+      }
+    }
 
     if (this.statsForm.get('wisdom')?.getRawValue()) {
-    if (this.statsForm.get('wisdom')?.getRawValue() > 10) {
-      this.wisdomBonus = Math.floor((this.statsForm.get('wisdom')?.getRawValue() - 10) / 2);
-    } else {
-      this.wisdomBonus = Math.ceil((this.statsForm.get('wisdom')?.getRawValue() - 10) / 2);
-    }}
+      if (this.statsForm.get('wisdom')?.getRawValue() > 10) {
+        this.wisdomBonus = Math.floor(
+          (this.statsForm.get('wisdom')?.getRawValue() - 10) / 2
+        );
+      } else {
+        this.wisdomBonus = Math.ceil(
+          (this.statsForm.get('wisdom')?.getRawValue() - 10) / 2
+        );
+      }
+    }
 
     if (this.statsForm.get('charisma')?.getRawValue()) {
-    if (this.statsForm.get('charisma')?.getRawValue() > 10) {
-      this.charismaBonus = Math.floor((this.statsForm.get('charisma')?.getRawValue() - 10) / 2);
-    } else {
-      this.charismaBonus = Math.ceil((this.statsForm.get('charisma')?.getRawValue() - 10) / 2);
-    }}
+      if (this.statsForm.get('charisma')?.getRawValue() > 10) {
+        this.charismaBonus = Math.floor(
+          (this.statsForm.get('charisma')?.getRawValue() - 10) / 2
+        );
+      } else {
+        this.charismaBonus = Math.ceil(
+          (this.statsForm.get('charisma')?.getRawValue() - 10) / 2
+        );
+      }
+    }
   }
 }

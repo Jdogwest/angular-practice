@@ -2,47 +2,26 @@
   <div [formGroup]="combatParametersForm">
     <div class="combat-parameters">
       <div class="combat-parameters__three-big-params">
-        <input
-          type="number"
-          pInputText
-          formControlName="armorClass"
-          (ngModelChange)="saveData('armorClass', $event)"
-        />
+        <input type="number" pInputText formControlName="armorClass" />
         <p>{{ t("armorClass") }}</p>
       </div>
       <div class="combat-parameters__three-big-params">
-        <input
-          type="number"
-          pInputText
-          formControlName="initiative"
-          (ngModelChange)="saveData('initiative', $event)"
-        />
+        <input type="number" pInputText formControlName="initiative" />
         <p>{{ t("initiative") }}</p>
       </div>
       <div class="combat-parameters__three-big-params">
-        <input
-          type="number"
-          pInputText
-          formControlName="speed"
-          (ngModelChange)="saveData('speed', $event)"
-        />
+        <input type="number" pInputText formControlName="speed" />
         <p>{{ t("speed") }}</p>
       </div>
       <div class="combat-parameters__health-points">
         <div class="combat-parameters__health-points-max">
           <p>{{ t("maxHP") }}</p>
-          <input
-            type="number"
-            pInputText
-            formControlName="maxHP"
-            (ngModelChange)="saveData('maxHP', $event)"
-          />
+          <input type="number" pInputText formControlName="maxHP" />
         </div>
         <textarea
           rows="3"
           pInputTextarea
           formControlName="currentHP"
-          (ngModelChange)="saveData('currentHP', $event)"
         ></textarea>
         <p>{{ t("currentHP") }}</p>
       </div>
@@ -51,7 +30,6 @@
           rows="3"
           pInputTextarea
           formControlName="temporaryHP"
-          (ngModelChange)="saveData('temporaryHP', $event)"
         ></textarea>
         <p>{{ t("temporaryHP") }}</p>
       </div>
@@ -65,53 +43,27 @@
             class="dices__dice-text col-5"
             pInputText
             formControlName="totalHD"
-            (ngModelChange)="saveData('totalHD', $event)"
           />
           <input
             type="text"
             class="dices__dice-text col-10"
             pInputText
             formControlName="diceName"
-            (ngModelChange)="saveData('diceName', $event)"
           />
           <p>{{ t("hitDice") }}</p>
         </div>
         <div class="dices-challenges-group__challenges challenges">
           <div class="challenges__inputgroup">
             <p>{{ t("success") }}</p>
-            <p-checkbox
-              [binary]="true"
-              formControlName="successFirst"
-              (ngModelChange)="saveData('successFirst', $event)"
-            />
-            <p-checkbox
-              [binary]="true"
-              formControlName="successSecond"
-              (ngModelChange)="saveData('successSecond', $event)"
-            />
-            <p-checkbox
-              [binary]="true"
-              formControlName="successThird"
-              (ngModelChange)="saveData('successThird', $event)"
-            />
+            <p-checkbox [binary]="true" formControlName="successFirst" />
+            <p-checkbox [binary]="true" formControlName="successSecond" />
+            <p-checkbox [binary]="true" formControlName="successThird" />
           </div>
           <div class="challenges__inputgroup">
             <p>{{ t("failures") }}</p>
-            <p-checkbox
-              [binary]="true"
-              formControlName="failureFirst"
-              (ngModelChange)="saveData('failureFirst', $event)"
-            />
-            <p-checkbox
-              [binary]="true"
-              formControlName="failureSecond"
-              (ngModelChange)="saveData('failureSecond', $event)"
-            />
-            <p-checkbox
-              [binary]="true"
-              formControlName="failureThird"
-              (ngModelChange)="saveData('failureThird', $event)"
-            />
+            <p-checkbox [binary]="true" formControlName="failureFirst" />
+            <p-checkbox [binary]="true" formControlName="failureSecond" />
+            <p-checkbox [binary]="true" formControlName="failureThird" />
           </div>
           <p>{{ t("challengesDeath") }}</p>
         </div>

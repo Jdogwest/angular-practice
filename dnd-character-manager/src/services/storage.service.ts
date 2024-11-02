@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { isString } from '@ngneat/transloco';
 import {
   DAttackSpells,
   DCombat,
@@ -25,7 +24,7 @@ export class StorageService {
 
   constructor() {
     this.saveService = new LocalSaveService();
-    this.headerData = this.saveService.getData('headerData', DHeader);
+    this.headerData = this.saveService.getData<IHeader>('headerData', DHeader);
     this.inventoryData = this.saveService.getData('inventoryData', DInventory);
     this.descriptionData = this.saveService.getData(
       'descriptionData',
@@ -41,33 +40,34 @@ export class StorageService {
     this.featTraits = this.saveService.getData<string>('featTraits', '');
   }
 
-  setData(dataName: string, data: string | number | boolean) {
-    if (Object.hasOwn(this.headerData, dataName)) {
-      let partialData: Partial<IHeader> = { [dataName]: data };
-      this.headerData = Object.assign(this.headerData, partialData);
-    } else if (Object.hasOwn(this.inventoryData, dataName)) {
-      let partialData: Partial<IInventory> = { [dataName]: data };
-      this.inventoryData = Object.assign(this.inventoryData, partialData);
-    } else if (Object.hasOwn(this.descriptionData, dataName)) {
-      let partialData: Partial<IDescription> = { [dataName]: data };
-      this.descriptionData = Object.assign(this.descriptionData, partialData);
-    } else if (Object.hasOwn(this.combatData, dataName)) {
-      let partialData: Partial<ICombat> = { [dataName]: data };
-      this.combatData = Object.assign(this.combatData, partialData);
-    } else if (Object.hasOwn(this.attacksSpellsData, dataName)) {
-      let partialData: Partial<IAttacksSpells> = { [dataName]: data };
-      this.attacksSpellsData = Object.assign(
-        this.attacksSpellsData,
-        partialData
-      );
-    } else if (Object.hasOwn(this.statsData, dataName)) {
-      let partialData: Partial<IStats> = { [dataName]: data };
-      this.statsData = Object.assign(this.statsData, partialData);
-    } else if (dataName === 'abilLangs' && isString(data)) {
-      this.abilLangs = data;
-    } else if (dataName === 'featTraits' && isString(data)) {
-      this.featTraits = data;
+  setData<T>(dataName: string, data: T): void {
+    switch (dataName) {
+      case 'abilLangs':
+        this.abilLangs = data as string;
+        break;
+      case 'featTraits':
+        this.featTraits = data as string;
+        break;
+      case 'headerData':
+        this.headerData = data as IHeader;
+        break;
+      case 'inventoryData':
+        this.inventoryData = data as IInventory;
+        break;
+      case 'descriptionData':
+        this.descriptionData = data as IDescription;
+        break;
+      case 'combatData':
+        this.combatData = data as ICombat;
+        break;
+      case 'attacksSpellsData':
+        this.attacksSpellsData = data as IAttacksSpells;
+        break;
+      case 'statsData':
+        this.statsData = data as IStats;
+        break;
     }
+
     this.saveAllData();
   }
 

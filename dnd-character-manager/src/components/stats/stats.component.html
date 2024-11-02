@@ -11,7 +11,6 @@
             [min]="0"
             [max]="20"
             formControlName="strength"
-            (ngModelChange)="saveData('strength', $event); setBonus()"
           />
           <input
             type="text"
@@ -32,7 +31,6 @@
             [min]="0"
             [max]="20"
             formControlName="dexterity"
-            (ngModelChange)="saveData('dexterity', $event); setBonus()"
           />
           <input
             type="text"
@@ -53,7 +51,6 @@
             [min]="0"
             [max]="20"
             formControlName="constitution"
-            (ngModelChange)="saveData('constitution', $event); setBonus()"
           />
           <input
             type="text"
@@ -74,7 +71,6 @@
             [min]="0"
             [max]="20"
             formControlName="intelligence"
-            (ngModelChange)="saveData('intelligence', $event); setBonus()"
           />
           <input
             type="text"
@@ -95,7 +91,6 @@
             [min]="0"
             [max]="20"
             formControlName="wisdom"
-            (ngModelChange)="saveData('wisdom', $event); setBonus()"
           />
           <input
             type="text"
@@ -116,7 +111,6 @@
             [min]="0"
             [max]="20"
             formControlName="charisma"
-            (ngModelChange)="saveData('charisma', $event); setBonus()"
           />
           <input
             type="text"
@@ -136,7 +130,6 @@
             class="col-3 col-offset-1"
             pInputText
             formControlName="inspiration"
-            (ngModelChange)="saveData('inspiration', $event)"
           />
           <p class="col-8">{{ t("inspiration") }}</p>
         </div>
@@ -146,7 +139,6 @@
             class="col-3 col-offset-1"
             pInputText
             formControlName="profienceBonus"
-            (ngModelChange)="saveData('profienceBonus', $event)"
           />
           <p class="col-8">{{ t("proficiency") }}</p>
         </div>
@@ -156,14 +148,12 @@
               class="col-offset-1"
               [binary]="true"
               formControlName="strengthChalChb"
-              (ngModelChange)="saveData('strengthChalChb', $event)"
             />
             <input
               type="text"
               class="col-2"
               pInputText
               formControlName="strengthChalVal"
-              (ngModelChange)="saveData('strengthChalVal', $event)"
               [max]="20"
               [min]="0"
               maxlength="2"
@@ -175,14 +165,12 @@
               class="col-offset-1"
               [binary]="true"
               formControlName="dexterityChalChb"
-              (ngModelChange)="saveData('dexterityChalChb', $event)"
             />
             <input
               type="text"
               class="col-2"
               pInputText
               formControlName="dexterityChalVal"
-              (ngModelChange)="saveData('dexterityChalVal', $event)"
               [max]="20"
               [min]="0"
               maxlength="2"
@@ -194,14 +182,12 @@
               class="col-offset-1"
               [binary]="true"
               formControlName="constitutionChalChb"
-              (ngModelChange)="saveData('constitutionChalChb', $event)"
             />
             <input
               type="text"
               class="col-2"
               pInputText
               formControlName="constitutionChalVal"
-              (ngModelChange)="saveData('constitutionChalVal', $event)"
               [max]="20"
               [min]="0"
               maxlength="2"
@@ -213,14 +199,12 @@
               class="col-offset-1"
               [binary]="true"
               formControlName="intelligenceChalChb"
-              (ngModelChange)="saveData('intelligenceChalChb', $event)"
             />
             <input
               type="text"
               class="col-2"
               pInputText
               formControlName="intelligenceChalVal"
-              (ngModelChange)="saveData('intelligenceChalVal', $event)"
               [max]="20"
               [min]="0"
               maxlength="2"
@@ -232,14 +216,12 @@
               class="col-offset-1"
               [binary]="true"
               formControlName="wisdomChalChb"
-              (ngModelChange)="saveData('wisdomChalChb', $event)"
             />
             <input
               type="text"
               class="col-2"
               pInputText
               formControlName="wisdomChalVal"
-              (ngModelChange)="saveData('wisdomChalVal', $event)"
               [max]="20"
               [min]="0"
               maxlength="2"
@@ -251,14 +233,12 @@
               class="col-offset-1"
               [binary]="true"
               formControlName="charismaChalChb"
-              (ngModelChange)="saveData('charismaChalChb', $event)"
             />
             <input
               type="text"
               class="col-2"
               pInputText
               formControlName="charismaChalVal"
-              (ngModelChange)="saveData('charismaChalVal', $event)"
               [max]="20"
               [min]="0"
               maxlength="2"
@@ -273,14 +253,12 @@
               class="col-offset-1"
               [binary]="true"
               formControlName="acrobaticsChb"
-              (ngModelChange)="saveData('acrobaticsChb', $event)"
             />
             <input
               type="text"
               class="col-2"
               pInputText
               formControlName="acrobaticsVal"
-              (ngModelChange)="saveData('acrobaticsVal', $event)"
               [max]="20"
               [min]="0"
               maxlength="2"
@@ -294,14 +272,12 @@
               class="col-offset-1"
               [binary]="true"
               formControlName="athleticsChb"
-              (ngModelChange)="saveData('athleticsChb', $event)"
             />
             <input
               type="text"
               class="col-2"
               pInputText
               formControlName="athleticsVal"
-              (ngModelChange)="saveData('athleticsVal', $event)"
               [max]="20"
               [min]="0"
               maxlength="2"
@@ -315,14 +291,12 @@
               class="col-offset-1"
               [binary]="true"
               formControlName="perceptionChb"
-              (ngModelChange)="saveData('perceptionChb', $event)"
             />
             <input
               type="text"
               class="col-2"
               pInputText
               formControlName="perceptionVal"
-              (ngModelChange)="saveData('perceptionVal', $event)"
               [max]="20"
               [min]="0"
               maxlength="2"
@@ -336,14 +310,12 @@
               class="col-offset-1"
               [binary]="true"
               formControlName="survivalChb"
-              (ngModelChange)="saveData('survivalChb', $event)"
             />
             <input
               type="text"
               class="col-2"
               pInputText
               formControlName="survivalVal"
-              (ngModelChange)="saveData('survivalVal', $event)"
               [max]="20"
               [min]="0"
               maxlength="2"
@@ -357,14 +329,12 @@
               class="col-offset-1"
               [binary]="true"
               formControlName="handlingChb"
-              (ngModelChange)="saveData('handlingChb', $event)"
             />
             <input
               type="text"
               class="col-2"
               pInputText
               formControlName="handlingVal"
-              (ngModelChange)="saveData('handlingVal', $event)"
               [max]="20"
               [min]="0"
               maxlength="2"
@@ -378,14 +348,12 @@
               class="col-offset-1"
               [binary]="true"
               formControlName="intimidationChb"
-              (ngModelChange)="saveData('intimidationChb', $event)"
             />
             <input
               type="text"
               class="col-2"
               pInputText
               formControlName="intimidationVal"
-              (ngModelChange)="saveData('intimidationVal', $event)"
               [max]="20"
               [min]="0"
               maxlength="2"
@@ -399,14 +367,12 @@
               class="col-offset-1"
               [binary]="true"
               formControlName="perfomanceChb"
-              (ngModelChange)="saveData('perfomanceChb', $event)"
             />
             <input
               type="text"
               class="col-2"
               pInputText
               formControlName="perfomanceVal"
-              (ngModelChange)="saveData('perfomanceVal', $event)"
               [max]="20"
               [min]="0"
               maxlength="2"
@@ -420,14 +386,12 @@
               class="col-offset-1"
               [binary]="true"
               formControlName="historyChb"
-              (ngModelChange)="saveData('historyChb', $event)"
             />
             <input
               type="text"
               class="col-2"
               pInputText
               formControlName="historyVal"
-              (ngModelChange)="saveData('historyVal', $event)"
               [max]="20"
               [min]="0"
               maxlength="2"
@@ -441,14 +405,12 @@
               class="col-offset-1"
               [binary]="true"
               formControlName="sleightOfHandChb"
-              (ngModelChange)="saveData('sleightOfHandChb', $event)"
             />
             <input
               type="text"
               class="col-2"
               pInputText
               formControlName="sleightOfHandVal"
-              (ngModelChange)="saveData('sleightOfHandVal', $event)"
               [max]="20"
               [min]="0"
               maxlength="2"
@@ -462,14 +424,12 @@
               class="col-offset-1"
               [binary]="true"
               formControlName="arcanaChb"
-              (ngModelChange)="saveData('arcanaChb', $event)"
             />
             <input
               type="text"
               class="col-2"
               pInputText
               formControlName="arcanaVal"
-              (ngModelChange)="saveData('arcanaVal', $event)"
               [max]="20"
               [min]="0"
               maxlength="2"
@@ -483,14 +443,12 @@
               class="col-offset-1"
               [binary]="true"
               formControlName="medicineChb"
-              (ngModelChange)="saveData('medicineChb', $event)"
             />
             <input
               type="text"
               class="col-2"
               pInputText
               formControlName="medicineVal"
-              (ngModelChange)="saveData('medicineVal', $event)"
               [max]="20"
               [min]="0"
               maxlength="2"
@@ -504,14 +462,12 @@
               class="col-offset-1"
               [binary]="true"
               formControlName="deceptionChb"
-              (ngModelChange)="saveData('deceptionChb', $event)"
             />
             <input
               type="text"
               class="col-2"
               pInputText
               formControlName="deceptionVal"
-              (ngModelChange)="saveData('deceptionVal', $event)"
               [max]="20"
               [min]="0"
               maxlength="2"
@@ -525,14 +481,12 @@
               class="col-offset-1"
               [binary]="true"
               formControlName="natureChb"
-              (ngModelChange)="saveData('natureChb', $event)"
             />
             <input
               type="text"
               class="col-2"
               pInputText
               formControlName="natureVal"
-              (ngModelChange)="saveData('natureVal', $event)"
               [max]="20"
               [min]="0"
               maxlength="2"
@@ -546,14 +500,12 @@
               class="col-offset-1"
               [binary]="true"
               formControlName="insightChb"
-              (ngModelChange)="saveData('insightChb', $event)"
             />
             <input
               type="text"
               class="col-2"
               pInputText
               formControlName="insightVal"
-              (ngModelChange)="saveData('insightVal', $event)"
               [max]="20"
               [min]="0"
               maxlength="2"
@@ -567,14 +519,12 @@
               class="col-offset-1"
               [binary]="true"
               formControlName="investigationChb"
-              (ngModelChange)="saveData('investigationChb', $event)"
             />
             <input
               type="text"
               class="col-2"
               pInputText
               formControlName="investigationVal"
-              (ngModelChange)="saveData('investigationVal', $event)"
               [max]="20"
               [min]="0"
               maxlength="2"
@@ -588,14 +538,12 @@
               class="col-offset-1"
               [binary]="true"
               formControlName="religionChb"
-              (ngModelChange)="saveData('religionChb', $event)"
             />
             <input
               type="text"
               class="col-2"
               pInputText
               formControlName="religionVal"
-              (ngModelChange)="saveData('religionVal', $event)"
               [max]="20"
               [min]="0"
               maxlength="2"
@@ -609,14 +557,12 @@
               class="col-offset-1"
               [binary]="true"
               formControlName="stealthChb"
-              (ngModelChange)="saveData('stealthChb', $event)"
             />
             <input
               type="text"
               class="col-2"
               pInputText
               formControlName="stealthVal"
-              (ngModelChange)="saveData('stealthVal', $event)"
               [max]="20"
               [min]="0"
               maxlength="2"
@@ -630,14 +576,12 @@
               class="col-offset-1"
               [binary]="true"
               formControlName="persuasionChb"
-              (ngModelChange)="saveData('persuasionChb', $event)"
             />
             <input
               type="text"
               class="col-2"
               pInputText
               formControlName="persuasionVal"
-              (ngModelChange)="saveData('persuasionVal', $event)"
               [max]="20"
               [min]="0"
               maxlength="2"
