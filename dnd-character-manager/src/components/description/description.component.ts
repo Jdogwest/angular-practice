@@ -41,14 +41,18 @@ export class DescriptionComponent {
     this.descriptionForm.valueChanges
       .pipe(debounceTime(1000))
       .subscribe((_) => {
-        this.storageService.setData(
-          'descriptionData',
-          this.descriptionForm.getRawValue()
-        );
+        this.saveToStorage();
       });
   }
 
   ngOnDestroy() {
     this.subs?.unsubscribe;
+  }
+
+  saveToStorage() {
+    this.storageService.setData(
+      'descriptionData',
+      this.descriptionForm.getRawValue()
+    );
   }
 }

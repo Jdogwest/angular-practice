@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TranslocoModule } from '@ngneat/transloco';
 import { InputTextModule } from 'primeng/inputtext';
-import { debounceTime, Subscription } from 'rxjs';
+import { debounceTime, scan, Subscription } from 'rxjs';
 import { StorageService } from '../../services/storage.service';
 
 @Component({
@@ -31,11 +31,15 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.headerForm.valueChanges.pipe(debounceTime(1000)).subscribe((_) => {
-      this.storageService.setData('headerData', this.headerForm.getRawValue());
+      this.saveToStorage();
     });
   }
 
   ngOnDestroy() {
     this.subs?.unsubscribe;
+  }
+
+  saveToStorage() {
+    this.storageService.setData('headerData', this.headerForm.getRawValue());
   }
 }

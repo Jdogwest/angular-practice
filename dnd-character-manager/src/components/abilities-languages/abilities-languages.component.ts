@@ -37,14 +37,18 @@ export class AbilitiesLanguagesComponent {
     this.subs = this.abilLangsForm.valueChanges
       .pipe(debounceTime(1000))
       .subscribe((_) => {
-        this.storageService.setData(
-          'abilLangs',
-          this.abilLangsForm.get('abilLangs')?.getRawValue()
-        );
+        this.saveToStorage();
       });
   }
 
   ngOnDestroy() {
     this.subs?.unsubscribe;
+  }
+
+  saveToStorage() {
+    this.storageService.setData(
+      'abilLangs',
+      this.abilLangsForm.get('abilLangs')?.getRawValue()
+    );
   }
 }

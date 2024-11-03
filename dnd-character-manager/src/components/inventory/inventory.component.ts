@@ -44,14 +44,18 @@ export class InventoryComponent {
 
   ngOnInit(): void {
     this.inventoryForm.valueChanges.pipe(debounceTime(1000)).subscribe((_) => {
-      this.storageService.setData(
-        'inventoryData',
-        this.inventoryForm.getRawValue()
-      );
+      this.saveToStorage();
     });
   }
 
   ngOnDestroy() {
     this.subs?.unsubscribe;
+  }
+
+  saveToStorage() {
+    this.storageService.setData(
+      'inventoryData',
+      this.inventoryForm.getRawValue()
+    );
   }
 }

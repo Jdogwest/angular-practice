@@ -109,12 +109,16 @@ export class StatsComponent {
   ngOnInit(): void {
     this.statsForm.valueChanges.pipe(debounceTime(1000)).subscribe((_) => {
       this.setBonus();
-      this.storageService.setData('statsData', this.statsForm.getRawValue());
+      this.saveToStorage();
     });
   }
 
   ngOnDestroy() {
     this.subs?.unsubscribe;
+  }
+
+  saveToStorage() {
+    this.storageService.setData('statsData', this.statsForm.getRawValue());
   }
 
   setBonus() {

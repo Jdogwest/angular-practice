@@ -37,14 +37,18 @@ export class FeaturesTraitsComponent {
     this.featuresTraitsForm.valueChanges
       .pipe(debounceTime(1000))
       .subscribe((_) => {
-        this.storageService.setData(
-          'featTraits',
-          this.featuresTraitsForm.get('featTraits')?.getRawValue()
-        );
+        this.saveToStorage();
       });
   }
 
   ngOnDestroy() {
     this.subs?.unsubscribe;
+  }
+
+  saveToStorage() {
+    this.storageService.setData(
+      'featTraits',
+      this.featuresTraitsForm.get('featTraits')?.getRawValue()
+    );
   }
 }

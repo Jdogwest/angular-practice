@@ -55,14 +55,18 @@ export class CombatParametersComponent {
     this.combatParametersForm.valueChanges
       .pipe(debounceTime(1000))
       .subscribe((_) => {
-        this.storageService.setData(
-          'combatData',
-          this.combatParametersForm.getRawValue()
-        );
+        this.saveToStorage();
       });
   }
 
   ngOnDestroy() {
     this.subs?.unsubscribe;
+  }
+
+  saveToStorage() {
+    this.storageService.setData(
+      'combatData',
+      this.combatParametersForm.getRawValue()
+    );
   }
 }

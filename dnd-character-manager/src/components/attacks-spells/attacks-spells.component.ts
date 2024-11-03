@@ -52,14 +52,18 @@ export class AttacksSpellsComponent {
     this.attacksSpellsForm.valueChanges
       .pipe(debounceTime(1000))
       .subscribe((_) => {
-        this.storageService.setData(
-          'attacksSpellsData',
-          this.attacksSpellsForm.getRawValue()
-        );
+        this.saveToStorage();
       });
   }
 
   ngOnDestroy() {
     this.subs?.unsubscribe;
+  }
+
+  saveToStorage() {
+    this.storageService.setData(
+      'attacksSpellsData',
+      this.attacksSpellsForm.getRawValue()
+    );
   }
 }
