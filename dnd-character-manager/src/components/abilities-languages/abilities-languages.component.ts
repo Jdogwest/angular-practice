@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
+  FormBuilder,
   FormControl,
   FormGroup,
   FormsModule,
@@ -23,12 +24,15 @@ import { StorageService } from '../../services/storage.service';
   styleUrl: './abilities-languages.component.scss',
 })
 export class AbilitiesLanguagesComponent {
+  private readonly storageService: StorageService = inject(StorageService);
+  private readonly formBuilder: FormBuilder = inject(FormBuilder);
+
   abilLangsForm: FormGroup;
   subs: Subscription | undefined;
 
-  constructor(private readonly storageService: StorageService) {
+  constructor() {
     let abilLang = this.storageService.getData('abilLangs');
-    this.abilLangsForm = new FormGroup({
+    this.abilLangsForm = this.formBuilder.group({
       abilLangs: new FormControl(abilLang),
     });
   }

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
+  FormBuilder,
   FormControl,
   FormGroup,
   FormsModule,
@@ -27,24 +28,27 @@ import { StorageService } from '../../services/storage.service';
   styleUrl: './attacks-spells.component.scss',
 })
 export class AttacksSpellsComponent {
+  private readonly storageService: StorageService = inject(StorageService);
+  private readonly formBuilder: FormBuilder = inject(FormBuilder);
+
   attacksSpellsForm: FormGroup;
   subs: Subscription | undefined;
 
-  constructor(private readonly storageService: StorageService) {
+  constructor() {
     let attacksSpellsData =
       this.storageService.getData<IAttacksSpells>('attacksSpellsData');
 
-    this.attacksSpellsForm = new FormGroup({
-      firstWeaponBonus: new FormControl(attacksSpellsData.firstWeaponBonus),
-      firstWeaponDamage: new FormControl(attacksSpellsData.firstWeaponDamage),
-      firstWeaponName: new FormControl(attacksSpellsData.firstWeaponName),
-      otherWeaponSpells: new FormControl(attacksSpellsData.otherWeaponSpells),
-      secondWeaponBonus: new FormControl(attacksSpellsData.secondWeaponBonus),
-      secondWeaponDamage: new FormControl(attacksSpellsData.secondWeaponDamage),
-      secondWeaponName: new FormControl(attacksSpellsData.secondWeaponName),
-      thirdWeaponBonus: new FormControl(attacksSpellsData.thirdWeaponBonus),
-      thirdWeapondamage: new FormControl(attacksSpellsData.thirdWeapondamage),
-      thirdWeaponName: new FormControl(attacksSpellsData.thirdWeaponName),
+    this.attacksSpellsForm = this.formBuilder.group<IAttacksSpells>({
+      firstWeaponBonus: attacksSpellsData.firstWeaponBonus,
+      firstWeaponDamage: attacksSpellsData.firstWeaponDamage,
+      firstWeaponName: attacksSpellsData.firstWeaponName,
+      otherWeaponSpells: attacksSpellsData.otherWeaponSpells,
+      secondWeaponBonus: attacksSpellsData.secondWeaponBonus,
+      secondWeaponDamage: attacksSpellsData.secondWeaponDamage,
+      secondWeaponName: attacksSpellsData.secondWeaponName,
+      thirdWeaponBonus: attacksSpellsData.thirdWeaponBonus,
+      thirdWeapondamage: attacksSpellsData.thirdWeapondamage,
+      thirdWeaponName: attacksSpellsData.thirdWeaponName,
     });
   }
 

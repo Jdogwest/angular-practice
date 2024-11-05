@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
+  FormBuilder,
   FormControl,
   FormGroup,
   FormsModule,
@@ -23,12 +24,15 @@ import { StorageService } from '../../services/storage.service';
   styleUrl: './features-traits.component.scss',
 })
 export class FeaturesTraitsComponent {
+  private readonly storageService: StorageService = inject(StorageService);
+  private readonly formBuilder: FormBuilder = inject(FormBuilder);
+
   featuresTraitsForm: FormGroup;
   subs: Subscription | undefined;
 
-  constructor(private readonly storageService: StorageService) {
+  constructor() {
     let featTraits = this.storageService.getData('featTraits');
-    this.featuresTraitsForm = new FormGroup({
+    this.featuresTraitsForm = this.formBuilder.group({
       featTraits: new FormControl(featTraits),
     });
   }

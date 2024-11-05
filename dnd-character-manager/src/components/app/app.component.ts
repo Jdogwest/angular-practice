@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
@@ -36,8 +36,7 @@ import { StatsComponent } from '../stats/stats.component';
   providers: [TranslateService, StorageService],
 })
 export class AppComponent {
-  constructor(
-    public storageService: StorageService,
-    public translateService: TranslateService
-  ) {}
+  public translateService: TranslateService = inject(TranslateService);
+
+  constructor() {}
 }

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Component, inject, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TranslocoModule } from '@ngneat/transloco';
 import { InputTextModule } from 'primeng/inputtext';
-import { debounceTime, scan, Subscription } from 'rxjs';
+import { debounceTime, Subscription } from 'rxjs';
 import { StorageService } from '../../services/storage.service';
 
 @Component({
@@ -13,19 +13,23 @@ import { StorageService } from '../../services/storage.service';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
+  private readonly storageService: StorageService = inject(StorageService);
+  private readonly formBuilder: FormBuilder = inject(FormBuilder);
+
   headerForm: FormGroup;
   subs: Subscription | undefined;
 
-  constructor(private readonly storageService: StorageService) {
+  constructor() {
     let headerData = this.storageService.getData<IHeader>('headerData');
-    this.headerForm = new FormGroup({
-      characterName: new FormControl(headerData.characterName),
-      classAndLevel: new FormControl(headerData.classAndLevel),
-      expirience: new FormControl(headerData.expirience),
-      origin: new FormControl(headerData.origin),
-      playerName: new FormControl(headerData.playerName),
-      species: new FormControl(headerData.species),
-      worldView: new FormControl(headerData.worldView),
+
+    this.headerForm = this.formBuilder.group<IHeader>({
+      characterName: headerData.characterName,
+      classAndLevel: headerData.classAndLevel,
+      expirience: headerData.expirience,
+      origin: headerData.origin,
+      playerName: headerData.playerName,
+      species: headerData.species,
+      worldView: headerData.worldView,
     });
   }
 

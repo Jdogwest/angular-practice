@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
-  FormControl,
+  FormBuilder,
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
@@ -27,6 +27,9 @@ import { StorageService } from '../../services/storage.service';
   styleUrl: './stats.component.scss',
 })
 export class StatsComponent {
+  private readonly storageService: StorageService = inject(StorageService);
+  private readonly formBuilder: FormBuilder = inject(FormBuilder);
+
   statsForm: FormGroup;
   subs: Subscription | undefined;
 
@@ -37,70 +40,70 @@ export class StatsComponent {
   wisdomBonus: number = 0;
   charismaBonus: number = 0;
 
-  constructor(private readonly storageService: StorageService) {
+  constructor() {
     let statsData = this.storageService.getData<IStats>('statsData');
 
-    this.statsForm = new FormGroup({
-      charisma: new FormControl(statsData.charisma),
-      constitution: new FormControl(statsData.constitution),
-      dexterity: new FormControl(statsData.dexterity),
-      inspiration: new FormControl(statsData.inspiration),
-      intelligence: new FormControl(statsData.intelligence),
-      profienceBonus: new FormControl(statsData.profienceBonus),
-      strength: new FormControl(statsData.strength),
-      wisdom: new FormControl(statsData.wisdom),
+    this.statsForm = this.formBuilder.group<IStats>({
+      charisma: statsData.charisma,
+      constitution: statsData.constitution,
+      dexterity: statsData.dexterity,
+      inspiration: statsData.inspiration,
+      intelligence: statsData.intelligence,
+      profienceBonus: statsData.profienceBonus,
+      strength: statsData.strength,
+      wisdom: statsData.wisdom,
 
-      charismaChalChb: new FormControl(statsData.charismaChalChb),
-      constitutionChalChb: new FormControl(statsData.constitutionChalChb),
-      dexterityChalChb: new FormControl(statsData.dexterityChalChb),
-      intelligenceChalChb: new FormControl(statsData.intelligenceChalChb),
-      strengthChalChb: new FormControl(statsData.strengthChalChb),
-      wisdomChalChb: new FormControl(statsData.wisdomChalChb),
+      charismaChalChb: statsData.charismaChalChb,
+      constitutionChalChb: statsData.constitutionChalChb,
+      dexterityChalChb: statsData.dexterityChalChb,
+      intelligenceChalChb: statsData.intelligenceChalChb,
+      strengthChalChb: statsData.strengthChalChb,
+      wisdomChalChb: statsData.wisdomChalChb,
 
-      charismaChalVal: new FormControl(statsData.charismaChalVal),
-      constitutionChalVal: new FormControl(statsData.constitutionChalVal),
-      dexterityChalVal: new FormControl(statsData.dexterityChalVal),
-      intelligenceChalVal: new FormControl(statsData.intelligenceChalVal),
-      strengthChalVal: new FormControl(statsData.strengthChalVal),
-      wisdomChalVal: new FormControl(statsData.wisdomChalVal),
+      charismaChalVal: statsData.charismaChalVal,
+      constitutionChalVal: statsData.constitutionChalVal,
+      dexterityChalVal: statsData.dexterityChalVal,
+      intelligenceChalVal: statsData.intelligenceChalVal,
+      strengthChalVal: statsData.strengthChalVal,
+      wisdomChalVal: statsData.wisdomChalVal,
 
-      acrobaticsChb: new FormControl(statsData.acrobaticsChb),
-      arcanaChb: new FormControl(statsData.arcanaChb),
-      athleticsChb: new FormControl(statsData.athleticsChb),
-      deceptionChb: new FormControl(statsData.deceptionChb),
-      handlingChb: new FormControl(statsData.handlingChb),
-      historyChb: new FormControl(statsData.historyChb),
-      insightChb: new FormControl(statsData.insightChb),
-      intimidationChb: new FormControl(statsData.intimidationChb),
-      investigationChb: new FormControl(statsData.investigationChb),
-      medicineChb: new FormControl(statsData.medicineChb),
-      natureChb: new FormControl(statsData.natureChb),
-      perceptionChb: new FormControl(statsData.perceptionChb),
-      perfomanceChb: new FormControl(statsData.perfomanceChb),
-      persuasionChb: new FormControl(statsData.persuasionChb),
-      religionChb: new FormControl(statsData.religionChb),
-      sleightOfHandChb: new FormControl(statsData.sleightOfHandChb),
-      stealthChb: new FormControl(statsData.stealthChb),
-      survivalChb: new FormControl(statsData.survivalChb),
+      acrobaticsChb: statsData.acrobaticsChb,
+      arcanaChb: statsData.arcanaChb,
+      athleticsChb: statsData.athleticsChb,
+      deceptionChb: statsData.deceptionChb,
+      handlingChb: statsData.handlingChb,
+      historyChb: statsData.historyChb,
+      insightChb: statsData.insightChb,
+      intimidationChb: statsData.intimidationChb,
+      investigationChb: statsData.investigationChb,
+      medicineChb: statsData.medicineChb,
+      natureChb: statsData.natureChb,
+      perceptionChb: statsData.perceptionChb,
+      perfomanceChb: statsData.perfomanceChb,
+      persuasionChb: statsData.persuasionChb,
+      religionChb: statsData.religionChb,
+      sleightOfHandChb: statsData.sleightOfHandChb,
+      stealthChb: statsData.stealthChb,
+      survivalChb: statsData.survivalChb,
 
-      acrobaticsVal: new FormControl(statsData.acrobaticsVal),
-      arcanaVal: new FormControl(statsData.arcanaVal),
-      athleticsVal: new FormControl(statsData.athleticsVal),
-      deceptionVal: new FormControl(statsData.deceptionVal),
-      handlingVal: new FormControl(statsData.handlingVal),
-      historyVal: new FormControl(statsData.historyVal),
-      insightVal: new FormControl(statsData.insightVal),
-      intimidationVal: new FormControl(statsData.intimidationVal),
-      investigationVal: new FormControl(statsData.investigationVal),
-      medicineVal: new FormControl(statsData.medicineVal),
-      natureVal: new FormControl(statsData.natureVal),
-      perceptionVal: new FormControl(statsData.perceptionVal),
-      perfomanceVal: new FormControl(statsData.perfomanceVal),
-      persuasionVal: new FormControl(statsData.persuasionVal),
-      religionVal: new FormControl(statsData.religionVal),
-      sleightOfHandVal: new FormControl(statsData.sleightOfHandVal),
-      stealthVal: new FormControl(statsData.stealthVal),
-      survivalVal: new FormControl(statsData.survivalVal),
+      acrobaticsVal: statsData.acrobaticsVal,
+      arcanaVal: statsData.arcanaVal,
+      athleticsVal: statsData.athleticsVal,
+      deceptionVal: statsData.deceptionVal,
+      handlingVal: statsData.handlingVal,
+      historyVal: statsData.historyVal,
+      insightVal: statsData.insightVal,
+      intimidationVal: statsData.intimidationVal,
+      investigationVal: statsData.investigationVal,
+      medicineVal: statsData.medicineVal,
+      natureVal: statsData.natureVal,
+      perceptionVal: statsData.perceptionVal,
+      perfomanceVal: statsData.perfomanceVal,
+      persuasionVal: statsData.persuasionVal,
+      religionVal: statsData.religionVal,
+      sleightOfHandVal: statsData.sleightOfHandVal,
+      stealthVal: statsData.stealthVal,
+      survivalVal: statsData.survivalVal,
     });
 
     this.setBonus();

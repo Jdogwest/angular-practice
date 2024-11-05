@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
+  FormBuilder,
   FormControl,
   FormGroup,
   FormsModule,
@@ -27,27 +28,30 @@ import { StorageService } from '../../services/storage.service';
   styleUrl: './combat-parameters.component.scss',
 })
 export class CombatParametersComponent {
+  private readonly storageService: StorageService = inject(StorageService);
+  private readonly formBuilder: FormBuilder = inject(FormBuilder);
+
   combatParametersForm: FormGroup;
   subs: Subscription | undefined;
 
-  constructor(private readonly storageService: StorageService) {
+  constructor() {
     let combatData = this.storageService.getData<ICombat>('combatData');
 
-    this.combatParametersForm = new FormGroup({
-      armorClass: new FormControl(combatData.armorClass),
-      currentHP: new FormControl(combatData.currentHP),
-      diceName: new FormControl(combatData.diceName),
-      failureFirst: new FormControl(combatData.failureFirst),
-      failureSecond: new FormControl(combatData.failureSecond),
-      failureThird: new FormControl(combatData.failureThird),
-      initiative: new FormControl(combatData.initiative),
-      maxHP: new FormControl(combatData.maxHP),
-      speed: new FormControl(combatData.speed),
-      successFirst: new FormControl(combatData.successFirst),
-      successSecond: new FormControl(combatData.successSecond),
-      successThird: new FormControl(combatData.successThird),
-      temporaryHP: new FormControl(combatData.temporaryHP),
-      totalHD: new FormControl(combatData.totalHD),
+    this.combatParametersForm = this.formBuilder.group<ICombat>({
+      armorClass: combatData.armorClass,
+      currentHP: combatData.currentHP,
+      diceName: combatData.diceName,
+      failureFirst: combatData.failureFirst,
+      failureSecond: combatData.failureSecond,
+      failureThird: combatData.failureThird,
+      initiative: combatData.initiative,
+      maxHP: combatData.maxHP,
+      speed: combatData.speed,
+      successFirst: combatData.successFirst,
+      successSecond: combatData.successSecond,
+      successThird: combatData.successThird,
+      temporaryHP: combatData.temporaryHP,
+      totalHD: combatData.totalHD,
     });
   }
 

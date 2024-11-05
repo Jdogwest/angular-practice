@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
+  FormBuilder,
   FormControl,
   FormGroup,
   FormsModule,
@@ -23,17 +24,20 @@ import { StorageService } from '../../services/storage.service';
   styleUrl: './description.component.scss',
 })
 export class DescriptionComponent {
+  private readonly storageService: StorageService = inject(StorageService);
+  private readonly formBuilder: FormBuilder = inject(FormBuilder);
+
   descriptionForm: FormGroup;
   subs: Subscription | undefined;
 
-  constructor(private readonly storageService: StorageService) {
+  constructor() {
     let descriptionData =
       this.storageService.getData<IDescription>('descriptionData');
-    this.descriptionForm = new FormGroup({
-      bonds: new FormControl(descriptionData.bonds),
-      flaws: new FormControl(descriptionData.flaws),
-      ideals: new FormControl(descriptionData.ideals),
-      personality: new FormControl(descriptionData.personality),
+    this.descriptionForm = this.formBuilder.group<IDescription>({
+      bonds: descriptionData.bonds,
+      flaws: descriptionData.flaws,
+      ideals: descriptionData.ideals,
+      personality: descriptionData.personality,
     });
   }
 

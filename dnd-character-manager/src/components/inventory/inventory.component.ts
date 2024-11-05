@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
-  FormControl,
+  FormBuilder,
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
@@ -25,20 +25,23 @@ import { StorageService } from '../../services/storage.service';
   styleUrl: './inventory.component.scss',
 })
 export class InventoryComponent {
+  private readonly storageService: StorageService = inject(StorageService);
+  private readonly formBuilder: FormBuilder = inject(FormBuilder);
+
   inventoryForm: FormGroup;
   subs: Subscription | undefined;
 
-  constructor(private readonly storageService: StorageService) {
+  constructor() {
     let inventoryData =
       this.storageService.getData<IInventory>('inventoryData');
 
-    this.inventoryForm = new FormGroup({
-      copperCoins: new FormControl(inventoryData.copperCoins),
-      electrumCoins: new FormControl(inventoryData.electrumCoins),
-      goldenCoins: new FormControl(inventoryData.goldenCoins),
-      otherItems: new FormControl(inventoryData.otherItems),
-      platinumCoins: new FormControl(inventoryData.platinumCoins),
-      silverCoins: new FormControl(inventoryData.silverCoins),
+    this.inventoryForm = this.formBuilder.group<IInventory>({
+      copperCoins: inventoryData.copperCoins,
+      electrumCoins: inventoryData.electrumCoins,
+      goldenCoins: inventoryData.goldenCoins,
+      otherItems: inventoryData.otherItems,
+      platinumCoins: inventoryData.platinumCoins,
+      silverCoins: inventoryData.silverCoins,
     });
   }
 
